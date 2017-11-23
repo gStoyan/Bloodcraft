@@ -3,8 +3,8 @@
     padding-top: 50px;
     padding-bottom: 20px;
     background: url('../images//Background//Background.jpg') center center fixed;
-    -webkit-background-clip: ;
-    -moz-background-clip: border-box;    
+    /*-webkit-background-clip: ;
+    -moz-background-clip: border-box;*/    
     background-size: cover;
     background-repeat: no-repeat;
     background-color: black;
