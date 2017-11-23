@@ -15,9 +15,9 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
-   
+
 </head>
-    
+
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -38,6 +38,9 @@
             </div>
         </div>
     </nav>
+    <div class="col-md-offset-10">
+        <p style="font-family: Britannic;font-size:160%; color:blanchedalmond">Server time: @DateTime.Now.ToShortTimeString()</p>
+    </div>
     <div class="body-content">
         @RenderBody()
         <hr />
@@ -66,8 +69,8 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
-    
+
     @RenderSection("Scripts", required: false)
-    
+
 </body>
 </html>
