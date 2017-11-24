@@ -3677,11 +3677,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\BloodCraft\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\Bloodcraft.Data.csproj",
+      "projectUniqueName": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\backup\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\Bloodcraft.Data.csproj",
       "projectName": "Bloodcraft.Data",
-      "projectPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\BloodCraft\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\Bloodcraft.Data.csproj",
+      "projectPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\backup\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\Bloodcraft.Data.csproj",
       "packagesPath": "C:\\Users\\Stoyan Grancharov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\BloodCraft\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\obj\\",
+      "outputPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\backup\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
