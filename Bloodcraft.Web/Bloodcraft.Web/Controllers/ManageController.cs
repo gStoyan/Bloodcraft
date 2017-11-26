@@ -12,6 +12,7 @@
     using Microsoft.Extensions.Logging;
     using Bloodcraft.Web.Models.Manage;
     using Bloodcraft.Data.Models;
+    using Microsoft.AspNetCore.Mvc.Infrastructure.Extensions;
 
     [Authorize]
     [Route("[controller]/[action]")]

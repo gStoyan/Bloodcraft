@@ -10,6 +10,8 @@
     using Microsoft.Extensions.Logging;
     using Bloodcraft.Web.Models.Users;
     using Bloodcraft.Data.Models;
+    using Microsoft.AspNetCore.Mvc.Infrastructure.Extensions;
+
     [Authorize]
     [Route("[controller]/[action]")]
     public class AccountController : Controller

@@ -1,4 +1,4 @@
-﻿namespace Bloodcraft.Web.Infrastructure
+﻿namespace Bloodcraft.Web.Infrastructure.Extensions
 {
     using Bloodcraft.Data;
     using Bloodcraft.Data.Models;

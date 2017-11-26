@@ -1,4 +1,4 @@
-namespace Microsoft.AspNetCore.Mvc
+namespace Microsoft.AspNetCore.Mvc.Infrastructure.Extensions
 {
     using Bloodcraft.Web.Controllers;
     public static class UrlHelperExtensions

@@ -1,5 +1,6 @@
 ﻿namespace Bloodcraft.Web
 {
+    using AutoMapper;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@
     using Microsoft.Extensions.DependencyInjection;
     using Bloodcraft.Data;
     using Bloodcraft.Data.Models;
+    using Bloodcraft.Web.Infrastructure.Extensions;
     using Bloodcraft.Web.Infrastructure;
 
     public class Startup
@@ -28,14 +30,17 @@
             services.AddIdentity<User, IdentityRole>(options =>
             {
                 options.Password.RequireDigit = false;
-                options.Password.RequireNonAlphanumeric= false;
-                options.Password.RequireUppercase= false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;
 
             })
                 .AddEntityFrameworkStores<BloodcraftDbContext>()
                 .AddDefaultTokenProviders();
-            
+
+            services.AddAutoMapper();
+
+            services.AddDomainServices();
 
             services.AddMvc();
         }
@@ -61,6 +66,10 @@
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                  name: "areas",
+                  template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
