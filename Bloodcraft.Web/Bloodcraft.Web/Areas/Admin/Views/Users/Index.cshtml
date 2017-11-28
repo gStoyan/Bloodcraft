@@ -1,44 +1,36 @@
-﻿@model IEnumerable<AdminUsersListingModel> 
+﻿@model IEnumerable<AdminUsersListingModel>
 
-@{ 
+@{
     ViewData["Title"] = "All Users";
 }
-
-<table class="table table-bordered table-hover">
-    <thead>
-        <tr>
-            <th>
-                Id
-            </th>
-            <th>
-                Username
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                Password
-            </th>
-        </tr>
-    </thead> 
-    <tbody>
-        @foreach (var user in Model)
-        {
+    <table class="table table-bordered">
+        <thead>
             <tr>
                 <th>
-                    @user.Id
+                    Id
                 </th>
                 <th>
-                    @user.Username
+                    Username
                 </th>
                 <th>
-                    @user.Email
-                </th>
-                <th>
-                    @user.Password
-                </th>
+                    Email
+                </th>               
             </tr>
-        }
-    </tbody>
-</table>
-
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <th>
+                        @user.Id
+                    </th>
+                    <th>
+                        @user.Username
+                    </th>
+                    <th>
+                        @user.Email
+                    </th>
+                </tr>
+            }
+        </tbody>
+    </table>

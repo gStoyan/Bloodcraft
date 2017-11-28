@@ -6,6 +6,7 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
+    using System;
     using System.Threading.Tasks;
 
     public static class ApplicationBuilderExtensions
@@ -47,7 +48,8 @@
                             adminUser = new User
                             {
                                 Email = adminEmail,
-                                UserName = adminName
+                                UserName = adminName,
+                                DateRegistered = DateTime.Now
                             };
 
                             await userManager.CreateAsync(adminUser, "password");
