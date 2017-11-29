@@ -13,6 +13,6 @@
         }
         
 
-        public IActionResult All() => View(this.users.All());
+        public IActionResult Index() => View(this.users.All());
     }
 }

@@ -12,9 +12,10 @@ using System;
 namespace Bloodcraft.Web.Data.Migrations
 {
     [DbContext(typeof(BloodcraftDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171128201403_Test12")]
+    partial class Test12
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,8 +31,6 @@ namespace Bloodcraft.Web.Data.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
-
-                    b.Property<DateTime?>("DateRegistered");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);

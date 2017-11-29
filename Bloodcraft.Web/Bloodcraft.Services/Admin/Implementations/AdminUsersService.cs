@@ -18,8 +18,9 @@
         public IEnumerable<AdminUsersListingModel> All()
              =>
                 this.db
-                .Users
-                .ProjectTo<AdminUsersListingModel>()
-                .ToList();
+                    .Users
+                    .ProjectTo<AdminUsersListingModel>()
+                    .OrderByDescending(u => u.DateRegistered)
+                    .ToList();
     }
 }

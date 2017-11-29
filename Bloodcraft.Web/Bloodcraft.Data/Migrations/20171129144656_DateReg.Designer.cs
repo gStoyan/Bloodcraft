@@ -12,9 +12,10 @@ using System;
 namespace Bloodcraft.Web.Data.Migrations
 {
     [DbContext(typeof(BloodcraftDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171129144656_DateReg")]
+    partial class DateReg
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

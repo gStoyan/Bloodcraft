@@ -9,6 +9,6 @@
         [Required]
         public UserRace Race { get; set; }
 
-        public DateTime DateRegistered { get; set; }
+        public DateTime? DateRegistered { get; set; }
     }
 }

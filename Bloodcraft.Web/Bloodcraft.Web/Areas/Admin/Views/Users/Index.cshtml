@@ -14,7 +14,10 @@
                 </th>
                 <th>
                     Email
-                </th>               
+                </th>  
+                <th>
+                    Date Registered
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +32,9 @@
                     </th>
                     <th>
                         @user.Email
+                    </th>
+                    <th>
+                        @user.DateRegistered.ToShortDateString()
                     </th>
                 </tr>
             }
