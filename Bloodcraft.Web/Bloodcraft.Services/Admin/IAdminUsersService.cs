@@ -2,8 +2,12 @@
 {
     using Bloodcraft.Services.Admin.Models;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
+
     public interface IAdminUsersService
     {
-        IEnumerable<AdminUsersListingModel> All();
+       Task<IEnumerable<AdminUsersListingModel>> AllAsync(int page = 1);
+
+        Task<int> TotalUsersAsync();
     }
 }

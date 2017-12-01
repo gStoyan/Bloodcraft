@@ -5,6 +5,9 @@
     using Bloodcraft.Data;
     using AutoMapper.QueryableExtensions;
     using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.EntityFrameworkCore;
+    using Bloodcraft.Services.Infrastructure;
 
     public class AdminUsersService : IAdminUsersService
     {
@@ -15,12 +18,17 @@
             this.db = db;
         }
 
-        public IEnumerable<AdminUsersListingModel> All()
-             =>
+        public async Task<int> TotalUsersAsync()
+            => await this.db.Users.CountAsync();
+
+        public async Task<IEnumerable<AdminUsersListingModel>> AllAsync(int page = 1)
+             => await
                 this.db
                     .Users
                     .ProjectTo<AdminUsersListingModel>()
                     .OrderByDescending(u => u.DateRegistered)
-                    .ToList();
+                    .Skip((page - 1) * ServicesConstants.SkipUsersCount)
+                    .Take(ServicesConstants.SkipUsersCount)
+                    .ToListAsync();
     }
 }

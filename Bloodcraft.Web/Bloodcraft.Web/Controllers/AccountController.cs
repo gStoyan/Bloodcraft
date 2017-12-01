@@ -213,7 +213,7 @@
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, Email = model.Email, DateRegistered=DateTime.Now};
+                var user = new User { UserName = model.Username, Email = model.Email, DateRegistered=DateTime.Now};
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

@@ -1,42 +1,63 @@
-﻿@model IEnumerable<AdminUsersListingModel>
+﻿@model AdminListingViewModel
 
 @{
     ViewData["Title"] = "All Users";
 }
-    <table class="table table-bordered">
-        <thead>
+
+<h2>@ViewData["Title"]</h2>
+
+<a asp-action="Index"
+   asp-route-page="@(Model.PrviousPage)"
+   class="btn btn-default">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-page="@(Model.NextPage)"
+   class="btn btn-default">
+    Next
+</a>
+<h3>@Model.PrviousPage @Model.CurrentPage @Model.NextPage</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Username
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Date Registered
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.AllUsers)
+        {
             <tr>
-                <th>
-                    Id
-                </th>
-                <th>
-                    Username
-                </th>
-                <th>
-                    Email
-                </th>  
-                <th>
-                    Date Registered
-                </th>
+                <td>
+                    @user.Id
+                </td>
+                <td>
+                    @user.Username
+                </td>
+                <td>
+                    @user.Email
+                </td>
+                <td>
+                    @user.DateRegistered
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@user.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@user.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@user.Id">Delete</a>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var user in Model)
-            {
-                <tr>
-                    <th>
-                        @user.Id
-                    </th>
-                    <th>
-                        @user.Username
-                    </th>
-                    <th>
-                        @user.Email
-                    </th>
-                    <th>
-                        @user.DateRegistered.ToShortDateString()
-                    </th>
-                </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>
+    
