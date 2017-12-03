@@ -1,0 +1,25 @@
+﻿@model CreatingMap
+@{
+    ViewData["Title"] = "World Map";
+}
+<h2>@ViewData["Title"]</h2>
+@{int[,] map = Model.Map;}
+    @for (int i = 0; i < map.GetLength(0); i++)
+    {
+        <br />
+        for (int j = 0; j < map.GetLength(1); j++)
+        {
+            @if (map[i,j]==WebConstants.BanditsSpawnValue)
+            {
+                <img src="~/images/Map/Bandits.jpg" style="margin-bottom:4px" width="168" height="168" />
+                continue;
+            }
+            else {
+            <img src="~/images/Map/MapGround.png" style="margin-bottom:4px" width="168" height="168" />
+            }
+        }
+    }
+
+
+
+

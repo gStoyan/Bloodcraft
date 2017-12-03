@@ -2,9 +2,7 @@
     color: wheat;
     padding-top: 50px;
     padding-bottom: 20px;
-    background: url('../images//Background//Background.jpg') center center fixed;
-    /*-webkit-background-clip: ;
-    -moz-background-clip: border-box;*/    
+    background: url('../images//Background//Background.jpg') center center fixed;     
     background-size: cover;
     background-repeat: no-repeat;
     background-color: black;
@@ -19,6 +17,10 @@
     text-shadow: black 0.3em 0.3em 0.3em;
 }
 
+.navbar-inverse {
+    background-color: black !important;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
@@ -30,12 +32,14 @@
     background-image: url('../images//Background//AdminBackground.jpg');
 }
 
+
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
     line-height: 1.4;
 }
 
+img
 
 /* Make .svg files in the carousel display properly in older browsers */
 .carousel-inner .item img[src$=".svg"] {
