@@ -22,6 +22,11 @@
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Race"></label>
+                <select asp-for="Race" asp-items="Html.GetEnumSelectList<UserRace>()" class="form-control"></select>
+                <span asp-validation-for="Race" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Password"></label>
                 <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>

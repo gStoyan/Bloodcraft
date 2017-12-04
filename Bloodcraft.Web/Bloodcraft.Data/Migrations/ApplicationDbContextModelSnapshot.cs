@@ -21,6 +21,76 @@ namespace Bloodcraft.Web.Data.Migrations
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Bloodcraft.Data.Models.Building", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("BloodCost");
+
+                    b.Property<int>("BloodIncome");
+
+                    b.Property<int>("BuildTime");
+
+                    b.Property<int>("CastleId");
+
+                    b.Property<int>("GoldCost");
+
+                    b.Property<int>("GoldIncome");
+
+                    b.Property<string>("ImgUrl");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CastleId");
+
+                    b.ToTable("Buldings");
+                });
+
+            modelBuilder.Entity("Bloodcraft.Data.Models.Castle", b =>
+                {
+                    b.Property<int>("CastleId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("CastleId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Castles");
+                });
+
+            modelBuilder.Entity("Bloodcraft.Data.Models.Minion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AttackPoints");
+
+                    b.Property<int>("BloodCost");
+
+                    b.Property<int>("BloodPoints");
+
+                    b.Property<int>("CastleId");
+
+                    b.Property<int>("DefencePoints");
+
+                    b.Property<int>("GoldCost");
+
+                    b.Property<string>("ImgUrl");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CastleId");
+
+                    b.ToTable("Minions");
+                });
+
             modelBuilder.Entity("Bloodcraft.Data.Models.User", b =>
                 {
                     b.Property<string>("Id")
@@ -182,6 +252,29 @@ namespace Bloodcraft.Web.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Bloodcraft.Data.Models.Building", b =>
+                {
+                    b.HasOne("Bloodcraft.Data.Models.Castle", "Castle")
+                        .WithMany("Buildings")
+                        .HasForeignKey("CastleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Bloodcraft.Data.Models.Castle", b =>
+                {
+                    b.HasOne("Bloodcraft.Data.Models.User", "User")
+                        .WithMany("Castles")
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("Bloodcraft.Data.Models.Minion", b =>
+                {
+                    b.HasOne("Bloodcraft.Data.Models.Castle", "Castle")
+                        .WithMany("Minions")
+                        .HasForeignKey("CastleId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
