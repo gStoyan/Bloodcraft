@@ -9,5 +9,7 @@
        Task<IEnumerable<AdminUsersListingModel>> AllAsync(int page = 1);
 
         Task<int> TotalUsersAsync();
+
+        Task<AdminUserDetailModel> DetailsAsync(string id);
     }
 }

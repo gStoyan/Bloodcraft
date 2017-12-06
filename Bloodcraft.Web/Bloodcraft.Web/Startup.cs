@@ -9,7 +9,7 @@
     using Microsoft.Extensions.DependencyInjection;
     using Bloodcraft.Data;
     using Bloodcraft.Data.Models;
-    using Bloodcraft.Web.Infrastructure.Extensions
+    using Bloodcraft.Web.Infrastructure.Extensions;
             
 
     public class Startup

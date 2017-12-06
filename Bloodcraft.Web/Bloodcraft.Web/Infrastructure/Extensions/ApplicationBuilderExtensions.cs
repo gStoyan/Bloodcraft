@@ -7,6 +7,7 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
     using System;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     public static class ApplicationBuilderExtensions
@@ -45,13 +46,16 @@
 
                         if (adminUser == null)
                         {
+                            var caslte = new Castle
+                            {
+                                Name = "adminCastle"
+                            };
                             adminUser = new User
                             {
                                 Email = adminEmail,
                                 UserName = adminName,
-                                DateRegistered = DateTime.Now
+                                DateRegistered = DateTime.Now,
                             };
-
                             await userManager.CreateAsync(adminUser, "password");
 
                             await userManager.AddToRoleAsync(adminUser, adminName);

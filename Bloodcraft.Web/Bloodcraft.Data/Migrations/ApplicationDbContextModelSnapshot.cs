@@ -54,6 +54,16 @@ namespace Bloodcraft.Web.Data.Migrations
                     b.Property<int>("CastleId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("Blood");
+
+                    b.Property<int>("Gold");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("TotalBloodIncome");
+
+                    b.Property<int>("TotalGoldIncome");
+
                     b.Property<string>("UserId");
 
                     b.HasKey("CastleId");

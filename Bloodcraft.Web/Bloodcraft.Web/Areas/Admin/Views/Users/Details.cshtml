@@ -1,0 +1,40 @@
+﻿@model AdminUserDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details for @Model.Username</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Castle Name
+            </th>
+           
+            <th>
+                Blood
+            </th>
+            <th>
+                Gold
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var castle in Model.Castles)
+        {
+            <tr>
+                <td>
+                    @castle.Name
+                </td>
+                <td>
+                    @castle.Blood
+                </td>
+                <td>
+                    @castle.Gold
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -8,6 +8,7 @@
     using System.Threading.Tasks;
     using Microsoft.EntityFrameworkCore;
     using Bloodcraft.Services.Infrastructure;
+    using System.Collections;
 
     public class AdminUsersService : IAdminUsersService
     {
@@ -30,5 +31,12 @@
                     .Skip((page - 1) * ServicesConstants.SkipUsersCount)
                     .Take(ServicesConstants.SkipUsersCount)
                     .ToListAsync();
+
+        public async Task<AdminUserDetailModel> DetailsAsync(string id)
+            => await
+                this.db
+                .Users
+                .ProjectTo<AdminUserDetailModel>()
+                .FirstOrDefaultAsync();
     }
 }

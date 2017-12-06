@@ -13,14 +13,27 @@
         {
             this.users = users;
         }
-        
+
         public async Task<IActionResult> Index(int page = 1)
-          => 
+          =>
             View(new AdminListingViewModel
             {
                 AllUsers = await this.users.AllAsync(page),
                 TotalUsers = await this.users.TotalUsersAsync(),
                 CurrentPage = page,
             });
+
+        [Route("admin/users/details/{id}")]
+        public async Task<IActionResult> Details(string id)
+        {
+            var result = await this.users.DetailsAsync(id);
+
+            return View(new AdminUserDetailsViewModel
+            {
+                Username = result.Username,
+                Castles = result.Castles
+            });
+        }
+
     }
 }

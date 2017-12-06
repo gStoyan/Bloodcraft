@@ -1,6 +1,5 @@
 ﻿namespace Bloodcraft.Data.Models
 {
-    using System.Collections.Generic;
     public class Building
     {
         public int Id { get; set; }
