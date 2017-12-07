@@ -11,5 +11,6 @@
         Task<int> TotalUsersAsync();
 
         Task<AdminUserDetailModel> DetailsAsync(string id);
+        
     }
 }

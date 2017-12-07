@@ -7,10 +7,21 @@
         <br /> 
         <div class="jumbotron jumbotron-fluid">
                 <h1 class="display-3">BLOODCRAFT</h1>
+            @if (!User.Identity.IsAuthenticated)
+            {
                 <p class="lead">To join the fight create and army from here: </p>
                 <p>
                     <a class="btn btn-primary btn-lg" href="/account/register" role="button">Register</a>
                 </p>
+            }
+            @if (User.Identity.IsAuthenticated)
+            {
+                <p class="lead">Welcome @User.Identity.Name</p>
+                <p class="lead">Create a castle and start spilling blood</p>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="/castles/create" role="button">To Castles</a>
+                </p>
+            }
             </div>
         </div>
 
