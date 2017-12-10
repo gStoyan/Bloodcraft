@@ -39,6 +39,10 @@
                     {
                         @Html.Partial("_Admin_Partial_View")
                     }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-area="" asp-controller="Castles" asp-action="Index">Castles</a></li>
+                    }
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>

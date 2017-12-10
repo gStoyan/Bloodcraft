@@ -1,0 +1,28 @@
+﻿@model CastlesListingViewModel
+@{
+    ViewData["Title"] = "List";
+}
+
+<h2>List</h2>
+
+@foreach(var castle in Model.Castles)
+{
+    <img src="http://cdn.wall-pix.net/albums/art-3Dview/00032113.jpg" />
+    <p>-Name: @castle.Name</p>
+    <p>-Starting Gold: @castle.Gold</p>
+    <p>-Starting Blood: @castle.Blood</p>
+    <p>-Starting Gold Income: @castle.TotalGoldIncome</p>
+    <p>-Starting BloodIncome: @castle.TotalBloodIncome</p>
+
+    <p>-Starting Starting Buildings: @foreach (var building in castle.Buildings)
+    {
+        @building.Name
+    }</p>
+    <p>
+        -Starting Starting Minions: @foreach (var minion in castle.Minions)
+        {
+            @minion.Name
+        }
+    </p>
+}
+}
