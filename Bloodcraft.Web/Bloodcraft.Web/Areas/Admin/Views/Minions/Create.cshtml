@@ -1,0 +1,57 @@
+﻿@model AdminMinionFormModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+            <h4>Create a new minion.</h4>
+            <hr />
+            
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control"  />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImgUrl"></label>
+                <input asp-for="ImgUrl" class="form-control" value="~/images/Units/"/>
+                <span asp-validation-for="ImgUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GoldCost"></label>
+                <input asp-for="GoldCost" class="form-control" />
+                <span asp-validation-for="GoldCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BloodCost"></label>
+                <input asp-for="BloodCost" class="form-control" />
+                <span asp-validation-for="BloodCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AttackPoints"></label>
+                <input asp-for="AttackPoints" class="form-control" />
+                <span asp-validation-for="AttackPoints" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DefencePoints"></label>
+                <input asp-for="DefencePoints" class="form-control" />
+                <span asp-validation-for="DefencePoints" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BloodPoints"></label>
+                <input asp-for="BloodPoints" class="form-control" />
+                <span asp-validation-for="BloodPoints" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-default">Create</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+

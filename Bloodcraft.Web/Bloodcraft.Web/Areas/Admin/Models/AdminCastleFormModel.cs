@@ -4,6 +4,8 @@
     {
         public string Name { get; set; }
 
+        public string ImgUrl { get; set; }
+
         public int Gold { get; set; }
 
         public int Blood { get; set; }

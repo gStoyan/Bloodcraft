@@ -7,5 +7,7 @@
     public interface ICastlesService
     {
         Task<IEnumerable<CastlesListingModel>> ListAllAsync();
+
+        Task ChooseAsync(string userId, string castleName);
     }
 }

@@ -6,6 +6,7 @@
         Task CreateAsync
             (string userId,
             string name,
+            string imgUrl,
             int blood,
             int gold,
             int totalBloodIncome,

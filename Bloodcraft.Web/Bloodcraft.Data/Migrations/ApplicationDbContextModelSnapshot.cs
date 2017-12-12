@@ -51,12 +51,14 @@ namespace Bloodcraft.Web.Data.Migrations
 
             modelBuilder.Entity("Bloodcraft.Data.Models.Castle", b =>
                 {
-                    b.Property<int>("CastleId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("Blood");
 
                     b.Property<int>("Gold");
+
+                    b.Property<string>("ImgUrl");
 
                     b.Property<string>("Name");
 
@@ -66,7 +68,7 @@ namespace Bloodcraft.Web.Data.Migrations
 
                     b.Property<string>("UserId");
 
-                    b.HasKey("CastleId");
+                    b.HasKey("Id");
 
                     b.HasIndex("UserId");
 

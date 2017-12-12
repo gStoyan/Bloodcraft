@@ -3,11 +3,13 @@
     using Bloodcraft.Core.Mapping;
     using Bloodcraft.Data.Models;
     using System.Collections.Generic;
-    public class CastlesListingModel : IMapFrom<Castle>
+
+    public class CastlesListingModel : IMapFrom<Castle> 
     {
-
-
+        
         public string Name { get; set; }
+
+        public string ImgUrl { get; set; }
 
         public int Gold { get; set; }
 
@@ -16,11 +18,11 @@
         public int TotalGoldIncome { get; set; }
 
         public int TotalBloodIncome { get; set; }
-
-        public List<Building> Buildings { get; set; }
-
+        
         public List<Minion> Minions { get; set; }
 
+        public List<Building> Buildings { get; set; }
+        
     }
 }
 

@@ -31,7 +31,7 @@
         {
             var userId = this.userManager.GetUserId(User);
 
-            await this.castles.CreateAsync(userId,castle.Name, castle.Blood, castle.Gold, castle.TotalBloodIncome, castle.TotalGoldIncome);
+            await this.castles.CreateAsync(userId,castle.Name,castle.ImgUrl, castle.Blood, castle.Gold, castle.TotalBloodIncome, castle.TotalGoldIncome);
 
             return RedirectToAction(nameof(Index));
         }

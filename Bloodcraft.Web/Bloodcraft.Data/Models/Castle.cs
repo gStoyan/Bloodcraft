@@ -4,13 +4,15 @@
 
     public class Castle
     {
-        public int CastleId { get; set; }
+        public int Id { get; set; }
 
         public string UserId { get; set; }
 
         public User User { get; set; }
 
         public string Name { get; set; }
+
+        public string ImgUrl { get; set; }
 
         public int Gold { get; set; }
 
@@ -23,6 +25,5 @@
         public List<Building> Buildings { get; set; } = new List<Building>();
         
         public List<Minion> Minions { get; set; } = new List<Minion>();
-
     }
 }
