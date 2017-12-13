@@ -2,6 +2,8 @@
 {
     public class ServicesConstants
     {
-        public const int SkipUsersCount = 2;
+        public const int SkipUsersCount = 5;
+
+        public const int SkipMinionsCount = 10;
     }
 }

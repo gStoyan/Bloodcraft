@@ -7,29 +7,31 @@
 
 @foreach (var castle in Model.Castles)
 {
-    <div class="leftDiv">
-        <img src="@castle.ImgUrl" />
-        <p>-Name: @castle.Name</p>
-        <p>-Starting Gold: @castle.Gold</p>
-        <p>-Starting Blood: @castle.Blood</p>
-        <p>-Starting Gold Income: @castle.TotalGoldIncome</p>
-        <p>-Starting BloodIncome: @castle.TotalBloodIncome</p>
+    <div class="leftDiv" style="background-image:url(@castle.ImgUrl)">
+        <div >
+            <p>-Name: @castle.Name</p>
+            <p>-Starting Gold: @castle.Gold</p>
+            <p>-Starting Blood: @castle.Blood</p>
+            <p>-Starting Gold Income: @castle.TotalGoldIncome</p>
+            <p>-Starting BloodIncome: @castle.TotalBloodIncome</p>
 
-        <p>
-            -Starting Buildings: @foreach (var building in castle.Buildings)
-            {
-                @building.Name
-            }
-        </p>
-        <p>
-            -Starting Minions: @foreach (var minion in castle.Minions)
-            {
-                @minion.Name
-                @minion.AttackPoints
-            }
-        </p>
-        <a asp-action="Choose" asp-route-name="@castle.Name">
-            Choose
-        </a>
+            <p>
+                -Starting Buildings: @foreach (var building in castle.Buildings)
+                {
+                    @building.Name
+                }
+            </p>
+            <p style="ma">
+                -Starting Minions: @foreach (var minion in castle.Minions)
+                {
+                     <img src="@minion.ImgUrl" width="80" height="120"/>@(minion.Name) <text> x  </text> @castle.Minions.Where(x => x.Name == minion.Name).Count() <text>| </text>
+}
+            </p>
+            <p style="margin-top:10%;margin-left:50%">
+                <a class="btn btn-danger" asp-action="Choose" asp-route-name="@castle.Name">
+                   Choose
+                </a>
+            </p>
+        </div>
     </div>
 }

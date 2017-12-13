@@ -1,7 +1,91 @@
-﻿
+﻿@model AdminMinionsListingViewModel
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "All Minions";
 }
 
-<h2>Index</h2>
+<h2>@ViewData["Title"]</h2>
+
+<a asp-action="Index"
+   asp-route-page="@(Model.PrviousPage)"
+   class="btn btn-default">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-page="@(Model.NextPage)"
+   class="btn btn-default">
+    Next
+</a>
+<p>@Model.PrviousPage @Model.CurrentPage @Model.NextPage</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Img Url
+            </th>
+            <th>
+                Gold Cost
+            </th>
+            <th>
+                Blood Cost
+            </th>
+            <th>
+                Attack Points
+            </th>
+            <th>
+                Defence Points
+            </th>
+            <th>
+                Blood Points
+            </th>
+            <th>
+                User
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var minion in Model.AllMinions)
+        {
+            <tr>
+                <td>
+                    @minion.Id
+                </td>
+                <td>
+                    @minion.Name
+                </td>
+                <td>
+                    @minion.ImgUrl
+                </td>
+                <td>
+                    @minion.GoldCost
+                </td>
+                <td>
+                    @minion.BloodCost
+                </td>
+                <td>
+                    @minion.AttackPoints
+                </td>
+                <td>
+                    @minion.DefencePoints
+                </td>
+                <td>
+                    @minion.BloodPoints
+                </td>
+                <td>
+                    @minion.Username
+                </td>
+                <td>
+                    <a class="btn btn-success" asp-area="Admin" asp-controller="Minions" asp-action="Edit" asp-route-id="@minion.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 

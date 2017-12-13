@@ -21,11 +21,22 @@
     background-color: black !important;
 }
 
-.leftDiv{
-    width:300px;
-    height:300px;
-    float:left;
+.leftDiv {
+    border-color: red;
+    border: thick;
+    width: 50%;
+    height: 720px;
+    float: left;
+    background: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: black;
 }
+.childDiv{
+    margin-left:20px;
+}
+
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
