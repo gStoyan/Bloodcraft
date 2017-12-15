@@ -60,5 +60,12 @@
 
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            await this.minions.Delete(id);
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

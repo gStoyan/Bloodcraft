@@ -83,6 +83,7 @@
                 </td>
                 <td>
                     <a class="btn btn-success" asp-area="Admin" asp-controller="Minions" asp-action="Edit" asp-route-id="@minion.Id">Edit</a>
+                    <a class="btn btn-success" asp-area="Admin" asp-controller="Minions" asp-action="Delete" asp-route-id="@minion.Id" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                 </td>
             </tr>
         }

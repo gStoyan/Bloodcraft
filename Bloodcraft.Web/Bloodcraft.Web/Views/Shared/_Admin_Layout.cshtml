@@ -39,7 +39,7 @@
                     <li><a asp-area="" asp-controller="Map" asp-action="Index">World Map</a></li>
                     @if (User.IsInRole("Admin"))
                     {
-                        @Html.Partial("_Admin_Partial_View")
+                        <li><a href="/admin/panel" style="font-size:large">Admin Panel</a></li>
                     }
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")

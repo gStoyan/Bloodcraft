@@ -32,5 +32,7 @@
         Task<IEnumerable<AdminMinionsListingModel>> AllAsync(int page = 1);
 
         Task<int> TotalMinionsAsync();
+
+        Task Delete(int minionId);
     }
 }

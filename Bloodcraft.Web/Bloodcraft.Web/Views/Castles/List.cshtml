@@ -8,7 +8,7 @@
 @foreach (var castle in Model.Castles)
 {
     <div class="leftDiv" style="background-image:url(@castle.ImgUrl)">
-        <div >
+        <div style="margin-left:5px;margin-top:5px">
             <p>-Name: @castle.Name</p>
             <p>-Starting Gold: @castle.Gold</p>
             <p>-Starting Blood: @castle.Blood</p>
@@ -18,10 +18,10 @@
             <p>
                 -Starting Buildings: @foreach (var building in castle.Buildings)
                 {
-                    @building.Name
+                    <img src="@building.ImgUrl" width="80" height="120" />@(building.Name) <text> x  </text> @castle.Buildings.Where(x => x.Name == building.Name).Count() <text>| </text>
                 }
             </p>
-            <p style="ma">
+            <p>
                 -Starting Minions: @foreach (var minion in castle.Minions)
                 {
                      <img src="@minion.ImgUrl" width="80" height="120"/>@(minion.Name) <text> x  </text> @castle.Minions.Where(x => x.Name == minion.Name).Count() <text>| </text>

@@ -19,17 +19,17 @@
             this.db = db;
         }
 
-        public async Task CreateAsync(string name, 
-            string imgUrl, 
-            int goldCost, 
-            int bloodCost, 
-            int attackPoints, 
-            int defencePoints, 
+        public async Task CreateAsync(string name,
+            string imgUrl,
+            int goldCost,
+            int bloodCost,
+            int attackPoints,
+            int defencePoints,
             int bloodPoints)
         {
             var minion = new Minion
             {
-                Name= name,
+                Name = name,
                 ImgUrl = imgUrl,
                 GoldCost = goldCost,
                 BloodCost = bloodCost,
@@ -51,7 +51,7 @@
             int attackPoints,
             int defencePoints,
             int bloodPoints)
-        {            
+        {
 
             minion.Name = name;
             minion.ImgUrl = imgUrl;
@@ -68,17 +68,26 @@
             =>
             await this.db.Minions.FirstOrDefaultAsync(m => m.Id == id);
 
-            public async Task<int> TotalMinionsAsync()
-     => await this.db.Minions.CountAsync();
+        public async Task<int> TotalMinionsAsync()
+ => await this.db.Minions.CountAsync();
 
         public async Task<IEnumerable<AdminMinionsListingModel>> AllAsync(int page = 1)
              => await
                 this.db
                     .Minions
                     .ProjectTo<AdminMinionsListingModel>()
-                    .OrderBy(m=>m.Id)
+                    .OrderBy(m => m.Id)
                     .Skip((page - 1) * ServicesConstants.SkipMinionsCount)
                     .Take(ServicesConstants.SkipMinionsCount)
                     .ToListAsync();
+
+        public async Task Delete(int minionId)
+        {
+            var minion = this.db.Minions.FirstOrDefault(m => m.Id == minionId);
+
+            this.db.Remove(minion);
+
+            await this.db.SaveChangesAsync();
+        }
     }
 }
