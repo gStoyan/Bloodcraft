@@ -1,18 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Bloodcraft.Web.Models;
-
-namespace Bloodcraft.Web.Controllers
+﻿namespace Bloodcraft.Web.Controllers
 {
+    using System.Diagnostics;
+    using Microsoft.AspNetCore.Mvc;
+    using Bloodcraft.Web.Models;
+    using Microsoft.AspNetCore.Identity;
+    using Bloodcraft.Data.Models;
+    using Bloodcraft.Services.Users;
+    using System.Threading.Tasks;
+    using Bloodcraft.Web.Models.Home;
+
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private IUsersService users;
+        private UserManager<User> userManager;
+        public HomeController(IUsersService users, UserManager<User> userManager)
         {
-            return View();
+            this.users = users;
+            this.userManager = userManager;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var id = this.userManager.GetUserId(User);
+
+            var users = await this.users.GetUsersAsync();
+
+            var model = new HomeViewModel();
+            foreach (var user in users)
+            {
+                if (user.Id == id)
+                {
+                    {
+                        model.CastlesCount = user.CastlesCount;
+                    }
+                }
+            }
+            return View(model);
         }
 
         public IActionResult About()

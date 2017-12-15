@@ -1,4 +1,6 @@
-﻿@{
+﻿@model HomeViewModel
+
+@{
     ViewData["Title"] = "Bloodcraft Home Page";
 }
 
@@ -16,11 +18,16 @@
             }
             @if (User.Identity.IsAuthenticated)
             {
+
                 <p class="lead">Welcome @User.Identity.Name</p>
-                <p class="lead">Choose your <strong>first</strong> castle and start spilling blood</p>
-                <p>
-                    <a class="btn btn-primary btn-lg" href="/castles/list" role="button">To Castles</a>
-                </p>
+                @if (Model.CastlesCount == 0)
+                {
+                    <p class="lead">Choose your <strong>first</strong> castle and start spilling blood</p>
+                    <p>
+                        <a class="btn btn-primary btn-lg" href="/castles/list" role="button">To Castles</a>
+                    </p>
+                }
+                
             }
             </div>
         </div>
