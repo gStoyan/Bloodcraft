@@ -5,22 +5,34 @@
 
     public static class CreateMap
     {
-        public static int[,] Create()
+        
+        public static int[,] Create(int castlesCount)
         {
-            int[,] map = new int[CoreConstants.MapWidth, CoreConstants.MapHeight];
+            int[,] map = new int[CoreConstants.MapHeight, CoreConstants.MapWidth];
 
-            
-            for (int i = 0; i < map.GetLength(0); i++)
+            while (castlesCount > 0)
             {
-                for (int j = 0; j < map.GetLength(1); j++)
+                for (int i = 0; i < map.GetLength(0); i++)
                 {
-                    if (Randoming.BanditSpawn())
+                    for (int j = 0; j < map.GetLength(1); j++)
                     {
-                        map[i,j] = 1;
+                        if (map[i,j] !=0)
+                        {
+                            continue;
+                        }
+                        if (Randoming.CastleSpawn() && castlesCount > 0)
+                        {
+                            map[i, j] = CoreConstants.CastleSpawnValue;
+                            castlesCount--;
+                            continue;
+                        }
+                        if (Randoming.BanditSpawn())
+                        {
+                            map[i, j] = CoreConstants.BanditsSpawnValue;
+                        }
                     }
                 }
             }
-
             return map;
         }
     }

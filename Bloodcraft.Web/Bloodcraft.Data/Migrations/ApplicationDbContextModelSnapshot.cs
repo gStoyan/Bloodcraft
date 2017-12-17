@@ -68,6 +68,10 @@ namespace Bloodcraft.Web.Data.Migrations
 
                     b.Property<string>("UserId");
 
+                    b.Property<int>("X");
+
+                    b.Property<int>("Y");
+
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
@@ -113,7 +117,7 @@ namespace Bloodcraft.Web.Data.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
-                    b.Property<DateTime?>("DateRegistered");
+                    b.Property<DateTime>("DateRegistered");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);

@@ -9,5 +9,11 @@
         Task<IEnumerable<CastlesListingModel>> ListAllAsync();
 
         Task ChooseAsync(string userId, string castleName);
+
+        Task<IEnumerable<CastlesListingModel>> ListUsersCastleAsync(string userId);
+
+        Task<CastlesListingModel> GetAdminCastleAsync();
+
+        Task<CastlesListingModel> GetUsersCastleAsync(int castleId);
     }
 }

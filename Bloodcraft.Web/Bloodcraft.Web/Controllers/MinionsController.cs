@@ -1,0 +1,30 @@
+﻿namespace Bloodcraft.Web.Controllers
+{
+    using Bloodcraft.Services.Users;
+    using Bloodcraft.Services.Users.Models;
+    using Bloodcraft.Web.Models.Castles;
+    using Bloodcraft.Web.Models.Minions;
+    using Microsoft.AspNetCore.Mvc;
+    using System.Threading.Tasks;
+
+    public class MinionsController : Controller
+    {
+        private ICastlesService castles;
+        private IMinionsService minions;
+
+        public MinionsController(ICastlesService castles, IMinionsService minions)
+        {
+            this.castles = castles;
+            this.minions = minions;
+        }
+
+        public async Task<IActionResult> Details(int id,string name) =>
+            View(
+                new MinionsDetailsViewModel
+                {
+                    AdminCastle = await this.castles.GetAdminCastleAsync(),
+                    UserCastle = await this.castles.GetUsersCastleAsync(id),
+                    Minion = await this.minions.DetailsAsync(name)
+                });
+    }
+}

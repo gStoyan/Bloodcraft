@@ -10,7 +10,7 @@
         [Required]
         public UserRace Race { get; set; }
         
-        public DateTime? DateRegistered { get; set; }
+        public DateTime DateRegistered { get; set; }
 
         public List<Castle> Castles { get; set; } = new List<Castle>();
     }

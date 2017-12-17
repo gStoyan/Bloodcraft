@@ -23,7 +23,11 @@
         public int TotalBloodIncome { get; set; }
 
         public List<Building> Buildings { get; set; } = new List<Building>();
-        
+
         public List<Minion> Minions { get; set; } = new List<Minion>();
+
+        public int X { get; set; }
+
+        public int Y { get; set; }
     }
 }

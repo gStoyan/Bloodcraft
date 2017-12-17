@@ -1,0 +1,40 @@
+﻿@model CastleDetailsViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+<h2>Details for @Model.UserCastle.Name</h2>
+<div class="leftDiv" style="background-color:black">
+    <p>
+        @foreach (var building in Model.AdminCastle.Buildings)
+        {
+            if (Model.UserCastle.Buildings.Contains(building))
+            {
+                <img src="@building.ImgUrl" style="width:100px" />
+            }
+            <img src="@building.ImgUrl" style="widows:100; -webkit-filter:grayscale(100%)" />
+
+        }
+    </p>
+    <p>
+        @foreach (var minion in Model.AdminCastle.Minions)
+        {
+            if (Model.UserCastle.Minions.Contains(minion))
+            {
+                <a asp-controller="Minions" asp-action="Details" asp-route-id="@Model.UserCastle.Id" asp-route-name="@minion.Name">
+                    <img src="@minion.ImgUrl" style="width:100px" /> <text>x @Model.UserCastle.Minions.Where(m => m.Name == minion.Name).Count() </text>
+                </a>
+                <img src="@minion.ImgUrl" style="width:100px" /> <text>x @Model.UserCastle.Minions.Where(m => m.Name == minion.Name).Count() </text>
+                
+            }
+            else
+            {
+                <a asp-controller="Minions" asp-action="Details" asp-route-id="@Model.UserCastle.Id" asp-route-name="@minion.Name">
+                    <img src="@minion.ImgUrl" style="width:100px; -webkit-filter:grayscale(100%)" /> <text>x 0</text>
+                </a>
+            }
+        }
+    </p>
+</div>
+<div class="leftDiv" style="background-color:black">
+    Buildgin Tab
+</div>

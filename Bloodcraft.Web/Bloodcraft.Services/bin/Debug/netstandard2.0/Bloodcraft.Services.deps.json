@@ -879,7 +879,8 @@
       },
       "Bloodcraft.Core/1.0.0": {
         "dependencies": {
-          "AutoMapper": "6.2.1"
+          "AutoMapper": "6.2.1",
+          "Bloodcraft.Data": "1.0.0"
         },
         "runtime": {
           "Bloodcraft.Core.dll": {}

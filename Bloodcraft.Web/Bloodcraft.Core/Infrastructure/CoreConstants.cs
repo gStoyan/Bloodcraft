@@ -7,5 +7,7 @@
         public const int MapHeight = 14;
 
         public const int BanditsSpawnValue = 1;
+
+        public const int CastleSpawnValue = 2;
     }
 }
