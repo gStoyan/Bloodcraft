@@ -16,15 +16,15 @@
         }
     </p>
     <p>
-        @foreach (var minion in Model.AdminCastle.Minions)
+        @foreach (var minion in Model.UserCastle.Minions.GroupBy(m=>m.Name).Select(m=>m.First()).ToList())
         {
             if (Model.UserCastle.Minions.Contains(minion))
             {
                 <a asp-controller="Minions" asp-action="Details" asp-route-id="@Model.UserCastle.Id" asp-route-name="@minion.Name">
                     <img src="@minion.ImgUrl" style="width:100px" /> <text>x @Model.UserCastle.Minions.Where(m => m.Name == minion.Name).Count() </text>
                 </a>
-                <img src="@minion.ImgUrl" style="width:100px" /> <text>x @Model.UserCastle.Minions.Where(m => m.Name == minion.Name).Count() </text>
-
+                
+                
             }
             else
             {
@@ -41,4 +41,7 @@
     <p>@Model.Minion.BloodCost</p>
     <p>@Model.Minion.GoldCost</p>
     <p>@Model.Minion.BloodPoints</p>
+    <a class="btn btn-danger" asp-action="Create" asp-route-id="@Model.UserCastle.Id" asp-route-name="@Model.Minion.Name">
+        Summon This Minion
+    </a>
 </div>

@@ -26,5 +26,13 @@
                     UserCastle = await this.castles.GetUsersCastleAsync(id),
                     Minion = await this.minions.DetailsAsync(name)
                 });
+
+        public async Task<IActionResult> Create(int id, string name)
+        {
+            await this.minions.CreateAsync(id, name);
+            ViewData["name"] = name;
+            return View();
+           
+        }
     }
 }

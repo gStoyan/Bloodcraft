@@ -5,5 +5,7 @@
     public interface  IMinionsService
     {
         Task<MinionsListingModel> DetailsAsync(string name);
+
+        Task CreateAsync(int castleId, string minionName);
     }
 }

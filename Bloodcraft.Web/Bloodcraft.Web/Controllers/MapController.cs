@@ -3,7 +3,6 @@
     using Bloodcraft.Core.WorldMap;
     using Bloodcraft.Web.Models.Map;
     using Microsoft.AspNetCore.Mvc;
-    using Bloodcraft.Core.Infrastructure.WorldMap;
     using Bloodcraft.Data;
     using System.Linq;
     using Bloodcraft.Core.Infrastructure;

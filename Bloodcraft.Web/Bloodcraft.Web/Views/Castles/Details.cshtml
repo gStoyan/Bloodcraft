@@ -12,19 +12,16 @@
                 <img src="@building.ImgUrl" style="width:100px" />
             }
             <img src="@building.ImgUrl" style="widows:100; -webkit-filter:grayscale(100%)" />
-
         }
     </p>
     <p>
-        @foreach (var minion in Model.AdminCastle.Minions)
+        @foreach (var minion in Model.AdminCastle.Minions.GroupBy(m => m.Name).Select(m => m.First()).ToList())
         {
-            if (Model.UserCastle.Minions.Contains(minion))
+            if (Model.UserCastle.Minions.Any(m => m.Name == minion.Name))
             {
                 <a asp-controller="Minions" asp-action="Details" asp-route-id="@Model.UserCastle.Id" asp-route-name="@minion.Name">
                     <img src="@minion.ImgUrl" style="width:100px" /> <text>x @Model.UserCastle.Minions.Where(m => m.Name == minion.Name).Count() </text>
                 </a>
-                <img src="@minion.ImgUrl" style="width:100px" /> <text>x @Model.UserCastle.Minions.Where(m => m.Name == minion.Name).Count() </text>
-                
             }
             else
             {

@@ -5,10 +5,8 @@
 }
 
 <h2>Your Castles</h2>
-
 @foreach (var castle in Model.Castles)
 {
-
     <div class="leftDiv" style="background-image:url(@castle.ImgUrl)">
         <div style="margin-left:5px;margin-top:5px">
             <p>-Name: @castle.Name</p>
@@ -18,15 +16,16 @@
             <p>-Starting BloodIncome: @castle.TotalBloodIncome</p>
 
             <p>
-                - Buildings: @foreach (var building in castle.Buildings)
+                - Buildings: @foreach (var building in castle.Buildings.GroupBy(b=>b.Name).Select(b=>b.First()).ToList())
                 {
                     <img src="@building.ImgUrl" width="80" height="120" />@(building.Name) <text> x  </text> @castle.Buildings.Where(x => x.Name == building.Name).Count() <text>| </text>
                 }
             </p>
             <p>
-                - Minions: @foreach (var minion in castle.Minions)
+                - Minions: @foreach (var minion in castle.Minions.GroupBy(m => m.Name).Select(m => m.First()).ToList())
                 {
                     <img src="@minion.ImgUrl" width="80" height="120" />@(minion.Name) <text> x  </text> @castle.Minions.Where(x => x.Name == minion.Name).Count() <text>| </text>
+                    
                 }
             </p>
             <p style="margin-top:10%;margin-left:50%">
