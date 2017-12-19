@@ -8,6 +8,8 @@
     {
         Task<IEnumerable<CastlesListingModel>> ListAllAsync();
 
+        Task<IEnumerable<CastlesListingModel>> GetAllCastlesAsync();
+
         Task ChooseAsync(string userId, string castleName);
 
         Task<IEnumerable<CastlesListingModel>> ListUsersCastleAsync(string userId);

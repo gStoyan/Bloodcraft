@@ -1,30 +1,38 @@
-﻿@model CreatingMap
+﻿@model CreatingMapModel
+
 @{
     ViewData["Title"] = "World Map";
 }
 <h2>@ViewData["Title"]</h2>
-@{int[,] map = Model.Map;}
-    @for (int i = 0; i < map.GetLength(0); i++)
-    {
-        <br />
-        for (int j = 0; j < map.GetLength(1); j++)
-        {
-            @if (map[i, j] == CoreConstants.CastleSpawnValue)
-            {
-                <img src="~/images/Castles/HumanBase.png" style="margin-bottom:4px" width="168" height="168" />
-                continue;
-            }
 
-            @if (map[i,j]==CoreConstants.BanditsSpawnValue)
-            {
-                <img src="~/images/Map/Bandits.jpg" style="margin-bottom:4px" width="168" height="168" />
-                continue;
-            }
-            else {
+
+@{int[,] map = Model.Map;}
+@for (int i = 0; i < map.GetLength(0); i++)
+{
+    <br />
+    for (int j = 0; j < map.GetLength(1); j++)
+    {
+        @if (map[i, j] == CoreConstants.CastleSpawnValue)
+        {
+            int id = Model.Castles.FirstOrDefault(c => c.X == i && c.Y == j).Id;
+
+            <a asp-controller="Castles" asp-action="Details" asp-route-id="@id">
+                <img src="~/images/Castles/HumanBase.png" style="margin-bottom:4px" width="168" height="168" />
+            </a>
+            continue;
+        }
+
+        @if (map[i, j] == CoreConstants.BanditsSpawnValue)
+        {
+            <img src="~/images/Map/Bandits.jpg" style="margin-bottom:4px" width="168" height="168" />
+            continue;
+        }
+        else
+        {
             <img src="~/images/Map/MapGround.png" style="margin-bottom:4px" width="168" height="168" />
-            }
         }
     }
+}
 
 
 

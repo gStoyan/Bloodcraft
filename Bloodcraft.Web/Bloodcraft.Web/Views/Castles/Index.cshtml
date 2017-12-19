@@ -10,10 +10,10 @@
     <div class="leftDiv" style="background-image:url(@castle.ImgUrl)">
         <div style="margin-left:5px;margin-top:5px">
             <p>-Name: @castle.Name</p>
-            <p>-Starting Gold: @castle.Gold</p>
-            <p>-Starting Blood: @castle.Blood</p>
-            <p>-Starting Gold Income: @castle.TotalGoldIncome</p>
-            <p>-Starting BloodIncome: @castle.TotalBloodIncome</p>
+            <p>- Gold: @castle.Gold</p>
+            <p>- Blood: @castle.Blood</p>
+            <p>- Gold Income: @castle.TotalGoldIncome</p>
+            <p>- BloodIncome: @castle.TotalBloodIncome</p>
 
             <p>
                 - Buildings: @foreach (var building in castle.Buildings.GroupBy(b=>b.Name).Select(b=>b.First()).ToList())

@@ -5,11 +5,25 @@
 
     public static class CreateMap
     {
-        
+        private static int[,] map = new int[CoreConstants.MapHeight, CoreConstants.MapWidth];
+
+
         public static int[,] Create(int castlesCount)
         {
-            int[,] map = new int[CoreConstants.MapHeight, CoreConstants.MapWidth];
+            for (int i = 0; i < map.GetLength(0); i++)
+            {
+                for (int j = 0; j < map.GetLength(1); j++)
+                {
+                    if (map[i, j] != 0)
+                    {
+                        return map;
+                    }
+                }
+            }
 
+            map = new int[CoreConstants.MapHeight, CoreConstants.MapWidth];
+
+                       
             while (castlesCount > 0)
             {
                 for (int i = 0; i < map.GetLength(0); i++)

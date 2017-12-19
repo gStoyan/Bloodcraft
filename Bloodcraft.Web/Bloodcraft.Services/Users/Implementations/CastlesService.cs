@@ -85,6 +85,13 @@
             .ProjectTo<CastlesListingModel>()
             .FirstOrDefaultAsync();
 
+        public async Task<IEnumerable<CastlesListingModel>> GetAllCastlesAsync()
+            => await
+            this.db
+            .Castles
+            .ProjectTo<CastlesListingModel>()
+            .ToListAsync();
+
         public async Task<IEnumerable<CastlesListingModel>> ListAllAsync()
         {
             var adminId = this.db.Users.FirstOrDefault(u => u.UserName == "Admin").Id;

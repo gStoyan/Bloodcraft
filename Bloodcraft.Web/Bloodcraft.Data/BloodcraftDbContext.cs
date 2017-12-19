@@ -15,7 +15,7 @@
 
         public DbSet<Minion> Minions { get; set; }
 
-        public DbSet<Castle> Castles { get; set; }
+        public DbSet<Castle> Castles { get; set; }        
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

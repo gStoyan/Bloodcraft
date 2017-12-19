@@ -1,48 +1,32 @@
 ﻿namespace Bloodcraft.Web.Controllers
 {
     using Bloodcraft.Core.WorldMap;
-    using Bloodcraft.Web.Models.Map;
     using Microsoft.AspNetCore.Mvc;
     using Bloodcraft.Data;
     using System.Linq;
     using Bloodcraft.Core.Infrastructure;
     using System.Threading.Tasks;
+    using Bloodcraft.Services.Users;
+    using Bloodcraft.Services.Users.Models;
 
     public class MapController : Controller
     {
+        private IMapsService maps;
         private BloodcraftDbContext db;
+        private ICastlesService castles;
 
-        public MapController(BloodcraftDbContext db)
+        public MapController(BloodcraftDbContext db, ICastlesService castles,IMapsService maps)
         {
             this.db = db;
+            this.castles = castles;
+            this.maps = maps;
         }
 
         public async Task<IActionResult> Index()
         {
-            var map = new CreatingMap
-            {
-                Map = CreateMap.Create(this.db.Castles.Count())
-            };
-
-            var castles = this.db.Castles.ToList();
-            
-            foreach (var castle in castles)
-            {
-                for (int i = 0; i < map.Map.GetLength(0); i++)
-                {
-                    for (int j = 0; j < map.Map.GetLength(1); j++)
-                    {
-                        if (map.Map[i, j] == CoreConstants.CastleSpawnValue && !castles.Any(c=>c.X==i && c.Y == j))
-                        {
-                            castle.X = i;
-                            castle.Y = j;
-
-                           await this.db.SaveChangesAsync();
-                        }
-                    }
-                }
-            }
-           return View(map);
+            var map = new CreatingMapModel();
+            map = await this.maps.CreateAsync();
+            return View(map);
         }
     }
 }

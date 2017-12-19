@@ -18,6 +18,8 @@
             this.minions = minions;
         }
 
+        public async Task<IActionResult> NotEnoughResources() => View();
+
         public async Task<IActionResult> Details(int id,string name) =>
             View(
                 new MinionsDetailsViewModel
@@ -27,12 +29,20 @@
                     Minion = await this.minions.DetailsAsync(name)
                 });
 
+        [ResponseCache(Duration = 10)]
         public async Task<IActionResult> Create(int id, string name)
         {
-            await this.minions.CreateAsync(id, name);
-            ViewData["name"] = name;
-            return View();
-           
+            try
+            {
+                await this.minions.CreateAsync(id, name);
+                ViewData["name"] = name;
+                return View();
+
+            }
+            catch (System.Exception)
+            {
+                return RedirectToAction(nameof(NotEnoughResources));
+            } 
         }
     }
 }

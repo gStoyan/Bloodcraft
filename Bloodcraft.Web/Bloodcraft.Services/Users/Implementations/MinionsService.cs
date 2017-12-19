@@ -5,6 +5,7 @@
     using Bloodcraft.Data.Models;
     using Bloodcraft.Services.Users.Models;
     using Microsoft.EntityFrameworkCore;
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
     public class MinionsService : IMinionsService
@@ -19,6 +20,7 @@
         public async Task CreateAsync(int castleId, string minionName)
         {
             var minion = this.db.Minions.FirstOrDefault(m => m.Name == minionName && m.CastleId == 13);
+            var castle = this.db.Castles.FirstOrDefault(c => c.Id == castleId);
 
             var newMinion = new Minion
             {
@@ -32,8 +34,18 @@
                 CastleId = castleId
             };
 
-            this.db.Minions.Add(newMinion);
-            await this.db.SaveChangesAsync();
+            if (castle.Gold > newMinion.GoldCost && castle.Blood > newMinion.BloodCost)
+            {
+                castle.Gold -= newMinion.GoldCost;
+                castle.Blood -= newMinion.BloodCost;
+
+                this.db.Minions.Add(newMinion);
+                await this.db.SaveChangesAsync();
+            }
+            else
+            {
+                throw new Exception();
+            }
         }
 
         public async Task<MinionsListingModel> DetailsAsync(string name)

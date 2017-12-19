@@ -79,6 +79,16 @@ namespace Bloodcraft.Web.Data.Migrations
                     b.ToTable("Castles");
                 });
 
+            modelBuilder.Entity("Bloodcraft.Data.Models.Map", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Maps");
+                });
+
             modelBuilder.Entity("Bloodcraft.Data.Models.Minion", b =>
                 {
                     b.Property<int>("Id")
