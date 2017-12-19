@@ -15,7 +15,9 @@
 
         public DbSet<Minion> Minions { get; set; }
 
-        public DbSet<Castle> Castles { get; set; }        
+        public DbSet<Castle> Castles { get; set; }     
+        
+        public DbSet<Knight> Knights { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -36,6 +38,10 @@
                 .HasMany(c => c.Minions)
                 .WithOne(c => c.Castle)
                 .HasForeignKey(c => c.CastleId);
+
+            builder.Entity<Castle>()
+                .HasOne(c => c.Knight)
+                .WithOne(k => k.Castle);
         
         }
     }

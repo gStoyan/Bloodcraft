@@ -9,5 +9,7 @@
         public const int BanditsSpawnValue = 1;
 
         public const int CastleSpawnValue = 2;
+
+        public const int KnightSpawnValue = 3;
     }
 }

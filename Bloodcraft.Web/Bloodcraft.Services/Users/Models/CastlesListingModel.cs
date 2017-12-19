@@ -8,6 +8,8 @@
     public class CastlesListingModel : IMapFrom<Castle> , IHaveCustomMapping
     {
         public int Id { get; set; }
+
+        public string UserId { get; set; }
         
         public string Username { get; set; }
 
@@ -30,6 +32,8 @@
         public int X { get; set; }
 
         public int Y { get; set; }
+
+        public Knight Knight { get; set; }
 
         public void ConfigureMapping(Profile mapper)
         {

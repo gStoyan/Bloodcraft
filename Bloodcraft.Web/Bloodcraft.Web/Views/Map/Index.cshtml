@@ -12,9 +12,23 @@
     <br />
     for (int j = 0; j < map.GetLength(1); j++)
     {
+        if (Model.Castles.FirstOrDefault(c=>c.Knight.X==i && c.Knight.Y == j) != null)
+        {
+            <img src="~/images/Map/Knight.jpg" style="margin-bottom:4px" width="168" height="168" />
+            continue;
+        }
+
         @if (map[i, j] == CoreConstants.CastleSpawnValue)
         {
             int id = Model.Castles.FirstOrDefault(c => c.X == i && c.Y == j).Id;
+
+            if (Model.Castles.FirstOrDefault(c => c.Id == id).UserId == Model.UserId)
+            {
+                <a class="btn btn-success"  asp-controller="Castles" asp-action="Details" asp-route-id="@id">
+                    <img src="~/images/Castles/HumanBase.png" style="margin-bottom:4px" width="168" height="168" />
+                </a>
+                continue;
+            }
 
             <a asp-controller="Castles" asp-action="Details" asp-route-id="@id">
                 <img src="~/images/Castles/HumanBase.png" style="margin-bottom:4px" width="168" height="168" />

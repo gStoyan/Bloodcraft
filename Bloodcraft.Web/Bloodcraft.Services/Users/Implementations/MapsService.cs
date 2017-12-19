@@ -6,13 +6,14 @@
     using Bloodcraft.Data;
     using System.Linq;
     using Bloodcraft.Core.Infrastructure;
+    using Bloodcraft.Data.Models;
 
     public class MapsService : IMapsService
     {
         private BloodcraftDbContext db;
         private ICastlesService castles;
 
-        public MapsService(BloodcraftDbContext db,ICastlesService castles)
+        public MapsService(BloodcraftDbContext db, ICastlesService castles)
         {
             this.db = db;
             this.castles = castles;
@@ -34,9 +35,11 @@
                     for (int j = 0; j < map.Map.GetLength(1); j++)
                     {
                         if (map.Map[i, j] == CoreConstants.CastleSpawnValue && !castles.Any(c => c.X == i && c.Y == j))
-                        {
+                        {                       
+
                             castle.X = i;
                             castle.Y = j;
+
 
                             await this.db.SaveChangesAsync();
                         }

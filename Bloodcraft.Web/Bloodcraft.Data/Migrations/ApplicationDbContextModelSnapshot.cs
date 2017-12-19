@@ -79,14 +79,23 @@ namespace Bloodcraft.Web.Data.Migrations
                     b.ToTable("Castles");
                 });
 
-            modelBuilder.Entity("Bloodcraft.Data.Models.Map", b =>
+            modelBuilder.Entity("Bloodcraft.Data.Models.Knight", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("CastleID");
+
+                    b.Property<int>("X");
+
+                    b.Property<int>("Y");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Maps");
+                    b.HasIndex("CastleID")
+                        .IsUnique();
+
+                    b.ToTable("Knights");
                 });
 
             modelBuilder.Entity("Bloodcraft.Data.Models.Minion", b =>
@@ -293,6 +302,14 @@ namespace Bloodcraft.Web.Data.Migrations
                     b.HasOne("Bloodcraft.Data.Models.User", "User")
                         .WithMany("Castles")
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("Bloodcraft.Data.Models.Knight", b =>
+                {
+                    b.HasOne("Bloodcraft.Data.Models.Castle", "Castle")
+                        .WithOne("Knight")
+                        .HasForeignKey("Bloodcraft.Data.Models.Knight", "CastleID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Bloodcraft.Data.Models.Minion", b =>
