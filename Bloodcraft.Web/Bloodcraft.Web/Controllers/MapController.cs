@@ -1,10 +1,6 @@
 ﻿namespace Bloodcraft.Web.Controllers
 {
-    using Bloodcraft.Core.WorldMap;
     using Microsoft.AspNetCore.Mvc;
-    using Bloodcraft.Data;
-    using System.Linq;
-    using Bloodcraft.Core.Infrastructure;
     using System.Threading.Tasks;
     using Bloodcraft.Services.Users;
     using Bloodcraft.Services.Users.Models;

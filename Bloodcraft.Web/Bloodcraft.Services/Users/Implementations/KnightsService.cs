@@ -2,6 +2,7 @@
 {
     using Bloodcraft.Data;
     using Bloodcraft.Data.Models;
+    using Bloodcraft.Services.Infrastructure;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -52,5 +53,33 @@
                 }               
             }
         }
+
+        public async Task MoveAsync(int knightId, int x, int y)
+        {
+            var knight = this.db.Knights.FirstOrDefault(k => k.Id == knightId);
+
+            knight.X = x;
+            knight.Y = y;
+
+            await this.db.SaveChangesAsync();
+
+        }
+
+        public async Task AttackBanditsAsync(int knightId, int x, int y)
+        {
+            var knight = this.db.Knights.FirstOrDefault(k => k.Id == knightId);
+
+            var castle = this.db.Castles.FirstOrDefault(c =>c.Knight == knight);
+
+            knight.X = x;
+            knight.Y = y;
+
+            castle.Blood += ServicesConstants.BanditsBloodBounty;
+            castle.Gold += ServicesConstants.BanditsGoldBounty;
+
+            await this.db.SaveChangesAsync();
+        }
+
+
     }
 }

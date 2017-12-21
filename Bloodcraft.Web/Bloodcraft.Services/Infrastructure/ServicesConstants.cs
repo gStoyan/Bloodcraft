@@ -7,5 +7,9 @@
         public const int SkipMinionsCount = 10;
 
         public const int SkipBuildingsCount = 7;
+
+        public const int BanditsGoldBounty = 200;
+
+        public const int BanditsBloodBounty = 300;
     }
 }
