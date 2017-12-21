@@ -11,5 +11,7 @@
         public const int BanditsGoldBounty = 200;
 
         public const int BanditsBloodBounty = 300;
+
+        public const int BandtitsDefencePoints = 500;
     }
 }

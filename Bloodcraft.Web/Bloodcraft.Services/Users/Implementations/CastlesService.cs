@@ -38,6 +38,7 @@
                     Name = minion.Name,
                     BloodPoints = minion.BloodPoints,
                 };
+                minions.Add(newMinion);
             }
             foreach (var building in castle.Buildings)
             {
@@ -63,7 +64,8 @@
                 TotalBloodIncome = castle.TotalBloodIncome,
                 TotalGoldIncome = castle.TotalGoldIncome,
                 Buildings = buildings,
-                Minions = minions
+                Minions = minions,
+                ImgUrl = castle.ImgUrl,
             };
 
             this.db.Users.FirstOrDefault(x => x.Id == userId).Castles.Add(newCastle);

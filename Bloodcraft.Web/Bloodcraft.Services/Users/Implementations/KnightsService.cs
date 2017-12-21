@@ -3,6 +3,7 @@
     using Bloodcraft.Data;
     using Bloodcraft.Data.Models;
     using Bloodcraft.Services.Infrastructure;
+    using Microsoft.EntityFrameworkCore;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -65,21 +66,42 @@
 
         }
 
-        public async Task AttackBanditsAsync(int knightId, int x, int y)
+        public async Task<bool> AttackBanditsAsync(int knightId, int x, int y)
         {
             var knight = this.db.Knights.FirstOrDefault(k => k.Id == knightId);
 
-            var castle = this.db.Castles.FirstOrDefault(c =>c.Knight == knight);
+            var castle = this.db.Castles.Include(c=>c.Minions).FirstOrDefault(c =>c.Knight == knight);
 
             knight.X = x;
             knight.Y = y;
 
-            castle.Blood += ServicesConstants.BanditsBloodBounty;
-            castle.Gold += ServicesConstants.BanditsGoldBounty;
+            var minions = castle.Minions;
+            var totalAttackPoints = 0;
+            foreach (var minion in minions)
+            {
+                totalAttackPoints += minion.AttackPoints;
+            }
 
-            await this.db.SaveChangesAsync();
+            if (totalAttackPoints > ServicesConstants.BandtitsDefencePoints)
+            {
+                castle.Blood += ServicesConstants.BanditsBloodBounty;
+                castle.Gold += ServicesConstants.BanditsGoldBounty;
+
+               
+                await this.db.SaveChangesAsync();
+
+                return true;
+            }
+            else
+            {
+                foreach (var minion in minions)
+                {
+                    this.db.Minions.Remove(minion);
+                }
+                await this.db.SaveChangesAsync();
+
+                return false;
+            }
         }
-
-
     }
 }

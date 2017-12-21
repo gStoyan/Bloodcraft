@@ -35,5 +35,12 @@
             });
         }
 
+        public async Task<IActionResult> Delete(string id)
+        {
+            await this.users.DeleteAsync(id);
+
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }

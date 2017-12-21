@@ -20,11 +20,16 @@
             return RedirectToAction("Index", "Map");
         }
 
-        public async Task<IActionResult> AttackBantits(int id, int x, int y)
+        public async Task<IActionResult> AttackBandits(int id, int x, int y)
         {
-            await this.knights.AttackBanditsAsync(id, x, y);
-
-            return RedirectToAction("Index", "Map");
+            if (await this.knights.AttackBanditsAsync(id, x, y))
+            {
+                return RedirectToAction("Index", "Map");
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }

@@ -7,6 +7,6 @@
 
         Task MoveAsync(int knightId, int x, int y);
 
-        Task AttackBanditsAsync(int knightId, int x, int y);
+        Task<bool> AttackBanditsAsync(int knightId, int x, int y);
     }
 }

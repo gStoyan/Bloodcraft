@@ -38,5 +38,14 @@
                 .Users
                 .ProjectTo<AdminUserDetailModel>()
                 .FirstOrDefaultAsync();
+
+        public async Task DeleteAsync(string id)
+        {
+            var user = this.db.Users.FirstOrDefault(u => u.Id == id);
+
+            this.db.Users.Remove(user);
+
+            await this.db.SaveChangesAsync();
+        }
     }
 }

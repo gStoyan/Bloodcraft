@@ -34,18 +34,18 @@
                 CastleId = castleId
             };
 
-            if (castle.Gold > newMinion.GoldCost && castle.Blood > newMinion.BloodCost)
-            {
+            //if (castle.Gold > newMinion.GoldCost && castle.Blood > newMinion.BloodCost)
+            //{
                 castle.Gold -= newMinion.GoldCost;
                 castle.Blood -= newMinion.BloodCost;
 
                 this.db.Minions.Add(newMinion);
                 await this.db.SaveChangesAsync();
-            }
-            else
-            {
-                throw new Exception();
-            }
+            //}
+            //else
+            //{
+            //    throw new Exception();
+            //}
         }
 
         public async Task<MinionsListingModel> DetailsAsync(string name)

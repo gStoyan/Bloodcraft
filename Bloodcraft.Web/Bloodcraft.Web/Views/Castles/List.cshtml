@@ -17,13 +17,13 @@
             <p>-Starting BloodIncome: @castle.TotalBloodIncome</p>
 
             <p>
-                -Starting Buildings: @foreach (var building in castle.Buildings)
+                -Starting Buildings: @foreach (var building in castle.Buildings.GroupBy(m => m.Name).Select(m => m.First()).ToList())
                 {
                     <img src="@building.ImgUrl" width="80" height="120" />@(building.Name) <text> x  </text> @castle.Buildings.Where(x => x.Name == building.Name).Count() <text>| </text>
                 }
             </p>
             <p>
-                -Starting Minions: @foreach (var minion in castle.Minions)
+                -Starting Minions: @foreach (var minion in castle.Minions.GroupBy(m => m.Name).Select(m => m.First()).ToList())
                 {
                      <img src="@minion.ImgUrl" width="80" height="120"/>@(minion.Name) <text> x  </text> @castle.Minions.Where(x => x.Name == minion.Name).Count() <text>| </text>
 }
