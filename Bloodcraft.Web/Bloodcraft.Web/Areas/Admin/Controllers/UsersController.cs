@@ -7,26 +7,26 @@
 
     public class UsersController : AdminBaseController
     {
-        private IAdminUsersService users;
+        private IAdminUsersService usersService;
 
         public UsersController(IAdminUsersService users)
         {
-            this.users = users;
+            this.usersService = users;
         }
 
         public async Task<IActionResult> Index(int page = 1)
           =>
             View(new AdminListingViewModel
             {
-                AllUsers = await this.users.AllAsync(page),
-                TotalUsers = await this.users.TotalUsersAsync(),
+                AllUsers = await this.usersService.AllAsync(page),
+                TotalUsers = await this.usersService.TotalUsersAsync(),
                 CurrentPage = page,
             });
 
         [Route("admin/users/details/{id}")]
         public async Task<IActionResult> Details(string id)
         {
-            var result = await this.users.DetailsAsync(id);
+            var result = await this.usersService.DetailsAsync(id);
 
             return View(new AdminUserDetailsViewModel
             {
@@ -37,7 +37,7 @@
 
         public async Task<IActionResult> Delete(string id)
         {
-            await this.users.DeleteAsync(id);
+            await this.usersService.DeleteAsync(id);
 
             return RedirectToAction(nameof(Index));
         }

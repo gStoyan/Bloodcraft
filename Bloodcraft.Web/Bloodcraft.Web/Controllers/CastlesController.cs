@@ -13,33 +13,33 @@
     public class CastlesController : Controller
     {
         private UserManager<User> userManager;
-        private ICastlesService castles;
+        private ICastlesService castlesService;
 
         public CastlesController(UserManager<User> userManager, ICastlesService castles)
         {
             this.userManager = userManager;
-            this.castles = castles;
+            this.castlesService = castles;
         }
         public async Task<IActionResult> Index()
         {
             var userId = this.userManager.GetUserId(User);
             return View(new CastlesListingViewModel
             {
-                Castles = await this.castles.ListUsersCastleAsync(userId)
+                Castles = await this.castlesService.ListUsersCastleAsync(userId)
             });
         }
 
         public async Task<IActionResult> List()
              => View(new CastlesListingViewModel
              {
-                 Castles = await this.castles.ListAllAsync()
+                 Castles = await this.castlesService.ListAllAsync()
              });
 
         public async Task<IActionResult> Details(int id)
         => View(new CastleDetailsViewModel
         {
-            AdminCastle = await this.castles.GetAdminCastleAsync(),
-            UserCastle = await this.castles.GetUsersCastleAsync(id)
+            AdminCastle = await this.castlesService.GetAdminCastleAsync(),
+            UserCastle = await this.castlesService.GetUsersCastleAsync(id)
         });
         
 
@@ -47,7 +47,7 @@
         {
             var userId = this.userManager.GetUserId(User);
 
-            await this.castles.ChooseAsync(userId, name);
+            await this.castlesService.ChooseAsync(userId, name);
 
             return RedirectToAction(nameof(Index));
         }

@@ -6,19 +6,19 @@
     using System.Threading.Tasks;
     public class KnightsController : AdminBaseController
     {
-        private IAdminKnightsService knights;
+        private IAdminKnightsService knightsService;
         private IKnightsService userKnights;
 
         public KnightsController(IAdminKnightsService knights, IKnightsService userKnights)
         {
-            this.knights = knights;
+            this.knightsService = knights;
             this.userKnights = userKnights;
         }
 
     
         public async Task<IActionResult> Index()
         {
-            await this.knights.ResetAsync();
+            await this.knightsService.ResetAsync();
 
             await this.userKnights.CreateAsync();
 

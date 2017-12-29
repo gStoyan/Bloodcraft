@@ -10,20 +10,20 @@
 
     public class BuildingsController : AdminBaseController
     {
-        private IAdminBuildingsService buildings;
+        private IAdminBuildingsService buildingsService;
         private UserManager<User> userManager;
 
         public BuildingsController(UserManager<User> userManager,IAdminBuildingsService buildings)
         {
             this.userManager = userManager;
-            this.buildings = buildings;
+            this.buildingsService = buildings;
         }
 
         public async Task<IActionResult> Index(int page = 1) 
             => View(new AdminBuildingsListingViewModel
         {
-                AllBuildings = await this.buildings.AllAsync(),
-                TotalBuildings = await this.buildings.TotalBuildingsAsync(),
+                AllBuildings = await this.buildingsService.AllAsync(),
+                TotalBuildings = await this.buildingsService.TotalBuildingsAsync(),
                 CurrentPage = page
         });
 
@@ -34,9 +34,9 @@
         public async Task<IActionResult> Create(AdminBuildingFormModel castle)
         {
             var userId = this.userManager.GetUserId(User);
-            var castleId = this.buildings.GetCastleIdAsync(userId);
+            var castleId = this.buildingsService.GetCastleIdAsync(userId);
 
-            await this.buildings.CreateAsync(castleId, castle.Name, castle.ImgUrl, castle.GoldIncome, castle.BloodIncome, castle.GoldCost, castle.BloodCost, castle.BuildTime);
+            await this.buildingsService.CreateAsync(castleId, castle.Name, castle.ImgUrl, castle.GoldIncome, castle.BloodIncome, castle.GoldCost, castle.BloodCost, castle.BuildTime);
 
             return RedirectToAction(nameof(Index));
         }
@@ -47,9 +47,9 @@
         [ValidateModelState]
         public async Task<IActionResult> Edit(AdminBuildingFormModel model, int id)
         {
-            var building = await this.buildings.GetById(id);
+            var building = await this.buildingsService.GetById(id);
 
-            await this.buildings.EditAsync(building, model.Name, model.ImgUrl, model.GoldIncome, model.BloodIncome, model.GoldCost, model.BloodCost, model.BuildTime);
+            await this.buildingsService.EditAsync(building, model.Name, model.ImgUrl, model.GoldIncome, model.BloodIncome, model.GoldCost, model.BloodCost, model.BuildTime);
 
             return RedirectToAction(nameof(Index));
 
@@ -57,7 +57,7 @@
 
         public async Task<IActionResult> Delete(int id)
         {
-            await this.buildings.DeleteAsync(id);
+            await this.buildingsService.DeleteAsync(id);
 
             return RedirectToAction(nameof(Index));
         }

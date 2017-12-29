@@ -25,7 +25,7 @@
 
             if (Model.Castles.FirstOrDefault(c => c.Id == id).UserId == Model.UserId)
             {
-                <a class="btn btn-success"  asp-controller="Castles" asp-action="Details" asp-route-id="@id">
+                <a class="btn btn-success" asp-controller="Castles" asp-action="Details" asp-route-id="@id">
                     <img src="~/images/Castles/HumanBase.png" style="margin-bottom:4px" width="168" height="168" />
                 </a>
                 continue;
@@ -41,7 +41,6 @@
         {
             if (Model.Castles.Any(c => (c.Knight.X == i && c.Knight.Y == j - 1)))
             {
-                @(Model.Map[i, j] = 0)
                 <a asp-controller="Knights" asp-action="AttackBandits" asp-route-id="@Model.Castles.FirstOrDefault(c=> c.Knight.X == i && c.Knight.Y == j - 1).Knight.Id" asp-route-x="@i" asp-route-y="@j">
                     <img src="~/images/Map/Bandits.jpg" style="margin-bottom:4px" width="168" height="168" />
                 </a>
@@ -49,7 +48,6 @@
             }
             if (Model.Castles.Any(c => (c.Knight.X == i && c.Knight.Y == j + 1)))
             {
-                @(Model.Map[i,j] = 0)
                 <a asp-controller="Knights" asp-action="AttackBandits" asp-route-id="@Model.Castles.FirstOrDefault(c=> c.Knight.X == i && c.Knight.Y == j + 1).Knight.Id" asp-route-x="@i" asp-route-y="@j">
                     <img src="~/images/Map/Bandits.jpg" style="margin-bottom:4px" width="168" height="168" />
                 </a>
@@ -57,7 +55,6 @@
             }
             if (Model.Castles.Any(c => (c.Knight.X == i - 1 && c.Knight.Y == j)))
             {
-                @(Model.Map[i,j] = 0)
                 <a asp-controller="Knights" asp-action="AttackBandits" asp-route-id="@Model.Castles.FirstOrDefault(c=> c.Knight.X == i -1 && c.Knight.Y == j).Knight.Id" asp-route-x="@i" asp-route-y="@j">
                     <img src="~/images/Map/Bandits.jpg" style="margin-bottom:4px" width="168" height="168" />
                 </a>
@@ -65,13 +62,11 @@
             }
             if (Model.Castles.Any(c => (c.Knight.X == i + 1 && c.Knight.Y == j)))
             {
-                @(Model.Map[i, j] = 0)
                 <a asp-controller="Knights" asp-action="AttackBandits" asp-route-id="@Model.Castles.FirstOrDefault(c=> c.Knight.X == i + 1 && c.Knight.Y == j).Knight.Id" asp-route-x="@i" asp-route-y="@j">
                     <img src="~/images/Map/Bandits.jpg" style="margin-bottom:4px" width="168" height="168" />
                 </a>
                 continue;
             }
-
             <img src="~/images/Map/Bandits.jpg" style="margin-bottom:4px" width="168" height="168" />
             continue;
         }
@@ -79,7 +74,7 @@
         {
             if (Model.Castles.Any(c => (c.Knight.X == i && c.Knight.Y == j - 1)))
             {
-                <a asp-controller="Knights" asp-action="Move" asp-route-id ="@Model.Castles.FirstOrDefault(c=> c.Knight.X == i && c.Knight.Y == j - 1).Knight.Id" asp-route-x="@i" asp-route-y ="@j">
+                <a asp-controller="Knights" asp-action="Move" asp-route-id="@Model.Castles.FirstOrDefault(c=> c.Knight.X == i && c.Knight.Y == j - 1).Knight.Id" asp-route-x="@i" asp-route-y="@j">
                     <img src="~/images/Map/MapGround.png" style="margin-bottom:4px" width="168" height="168" />
                 </a>
                 continue;

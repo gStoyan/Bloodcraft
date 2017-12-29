@@ -11,11 +11,11 @@
 
     public class HomeController : Controller
     {
-        private IUsersService users;
+        private IUsersService usersService;
         private UserManager<User> userManager;
         public HomeController(IUsersService users, UserManager<User> userManager)
         {
-            this.users = users;
+            this.usersService = users;
             this.userManager = userManager;
         }
 
@@ -23,7 +23,7 @@
         {
             var id = this.userManager.GetUserId(User);
 
-            var users = await this.users.GetUsersAsync();
+            var users = await this.usersService.GetUsersAsync();
 
             var model = new HomeViewModel();
             foreach (var user in users)

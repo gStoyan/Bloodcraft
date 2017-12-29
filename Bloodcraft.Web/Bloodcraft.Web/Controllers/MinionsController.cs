@@ -9,13 +9,13 @@
 
     public class MinionsController : Controller
     {
-        private ICastlesService castles;
-        private IMinionsService minions;
+        private ICastlesService castlesService;
+        private IMinionsService minionsService;
 
         public MinionsController(ICastlesService castles, IMinionsService minions)
         {
-            this.castles = castles;
-            this.minions = minions;
+            this.castlesService = castles;
+            this.minionsService = minions;
         }
 
         public async Task<IActionResult> NotEnoughResources() => View();
@@ -24,16 +24,16 @@
             View(
                 new MinionsDetailsViewModel
                 {
-                    AdminCastle = await this.castles.GetAdminCastleAsync(),
-                    UserCastle = await this.castles.GetUsersCastleAsync(id),
-                    Minion = await this.minions.DetailsAsync(name)
+                    AdminCastle = await this.castlesService.GetAdminCastleAsync(),
+                    UserCastle = await this.castlesService.GetUsersCastleAsync(id),
+                    Minion = await this.minionsService.DetailsAsync(name)
                 });
         
         public async Task<IActionResult> Create(int id, string name)
         {
             try
             {
-                await this.minions.CreateAsync(id, name);
+                await this.minionsService.CreateAsync(id, name);
                 ViewData["name"] = name;
                 return View();
 

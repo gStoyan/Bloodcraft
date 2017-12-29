@@ -10,14 +10,14 @@
 
     public class CastlesController : AdminBaseController
     {
-        private IAdminCastlesService castles;
+        private IAdminCastlesService castlesService;
         private UserManager<User> userManager;
 
         public CastlesController(
             IAdminCastlesService castles,
             UserManager<User> userManager)
         {
-            this.castles = castles;
+            this.castlesService = castles;
             this.userManager = userManager;
         }
 
@@ -31,7 +31,7 @@
         {
             var userId = this.userManager.GetUserId(User);
 
-            await this.castles.CreateAsync(userId,castle.Name,castle.ImgUrl, castle.Blood, castle.Gold, castle.TotalBloodIncome, castle.TotalGoldIncome);
+            await this.castlesService.CreateAsync(userId,castle.Name,castle.ImgUrl, castle.Blood, castle.Gold, castle.TotalBloodIncome, castle.TotalGoldIncome);
 
             return RedirectToAction(nameof(Index));
         }

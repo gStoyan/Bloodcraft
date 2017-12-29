@@ -6,23 +6,23 @@
 
     public class KnightsController : Controller
     {
-        private IKnightsService knights;
+        private IKnightsService knightsService;
 
         public KnightsController(IKnightsService knights)
         {
-            this.knights = knights;
+            this.knightsService = knights;
         }
 
         public async Task<IActionResult> Move(int id, int x, int y)
         {
-            await this.knights.MoveAsync(id, x, y);
+            await this.knightsService.MoveAsync(id, x, y);
 
             return RedirectToAction("Index", "Map");
         }
 
         public async Task<IActionResult> AttackBandits(int id, int x, int y)
         {
-            if (await this.knights.AttackBanditsAsync(id, x, y))
+            if (await this.knightsService.AttackBanditsAsync(id, x, y))
             {
                 return RedirectToAction("Index", "Map");
             }

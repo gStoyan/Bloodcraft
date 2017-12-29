@@ -3,7 +3,7 @@
     ViewData["Title"] = "Details";
 }
 <h2>Details for @Model.UserCastle.Name</h2>
-<div class="leftDiv" style="background-color:black">
+<div class="leftDiv" style=" background-image: @Model.UserCastle.ImgUrl">
     <p>Total Gold: @Model.UserCastle.Gold</p>
     <p>Total Blood: @Model.UserCastle.Blood</p>
     <p>Attack Points:@Model.UserCastle.Minions.Sum(m => m.AttackPoints) </p>

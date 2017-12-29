@@ -9,21 +9,21 @@
 
     public class MapController : Controller
     {
-        private IMapsService maps;
+        private IMapsService mapsService;
         private UserManager<User> userManager;
-        private IKnightsService knights;
+        private IKnightsService knightsService;
 
         public MapController(IMapsService maps, UserManager<User> userManager, IKnightsService knights)
         {
-            this.maps = maps;
+            this.mapsService = maps;
             this.userManager = userManager;
-            this.knights = knights;
+            this.knightsService = knights;
         }
 
         public async Task<IActionResult> Index()
         {
             var map = new CreatingMapModel();
-            map = await this.maps.CreateAsync();
+            map = await this.mapsService.CreateAsync();
             map.UserId = this.userManager.GetUserId(User);
             return View(map);
         }

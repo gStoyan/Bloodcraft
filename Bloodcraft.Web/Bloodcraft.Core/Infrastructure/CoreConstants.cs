@@ -11,5 +11,9 @@
         public const int CastleSpawnValue = 2;
 
         public const int KnightSpawnValue = 3;
+
+        public const int BanditsRandomChance = 30;
+
+        public const int CastlesRandomChance = 100;
     }
 }

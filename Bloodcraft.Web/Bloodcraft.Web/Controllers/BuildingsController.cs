@@ -6,13 +6,13 @@
     using System.Threading.Tasks;
     public class BuildingsController : Controller
     {
-        private ICastlesService castles;
-        private IBuildingsService buildings;
+        private ICastlesService castlesService;
+        private IBuildingsService buildingsService;
 
         public BuildingsController(ICastlesService castles, IBuildingsService buildings)
         {
-            this.castles = castles;
-            this.buildings = buildings;
+            this.castlesService = castles;
+            this.buildingsService = buildings;
         }
         public async Task<IActionResult> NotEnoughResources() => View();
 
@@ -20,16 +20,16 @@
             View(
                 new BuildingsDetailsViewModel
                 {
-                    AdminCastle = await this.castles.GetAdminCastleAsync(),
-                    UserCastle = await this.castles.GetUsersCastleAsync(id),
-                    Building = await this.buildings.DetailsAsync(name)
+                    AdminCastle = await this.castlesService.GetAdminCastleAsync(),
+                    UserCastle = await this.castlesService.GetUsersCastleAsync(id),
+                    Building = await this.buildingsService.DetailsAsync(name)
                 });
 
         public async Task<IActionResult> Create(int id, string name)
         {
             try
             {
-                await this.buildings.CreateAsync(id, name);
+                await this.buildingsService.CreateAsync(id, name);
                 ViewData["name"] = name;
                 return View();
 
