@@ -9,10 +9,10 @@
         private ICastlesService castlesService;
         private IBuildingsService buildingsService;
 
-        public BuildingsController(ICastlesService castles, IBuildingsService buildings)
+        public BuildingsController(ICastlesService castlesService, IBuildingsService buildingsService)
         {
-            this.castlesService = castles;
-            this.buildingsService = buildings;
+            this.castlesService = castlesService;
+            this.buildingsService = buildingsService;
         }
         public async Task<IActionResult> NotEnoughResources() => View();
 

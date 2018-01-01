@@ -13,15 +13,11 @@
         private IAdminCastlesService castlesService;
         private UserManager<User> userManager;
 
-        public CastlesController(
-            IAdminCastlesService castles,
-            UserManager<User> userManager)
+        public CastlesController(IAdminCastlesService castlesService,UserManager<User> userManager)
         {
-            this.castlesService = castles;
+            this.castlesService = castlesService;
             this.userManager = userManager;
         }
-
-        public async Task<IActionResult> Index() => View();
 
         public IActionResult Create() => View();
 
@@ -33,7 +29,7 @@
 
             await this.castlesService.CreateAsync(userId,castle.Name,castle.ImgUrl, castle.Blood, castle.Gold, castle.TotalBloodIncome, castle.TotalGoldIncome);
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index","Panel");
         }
     }
 }

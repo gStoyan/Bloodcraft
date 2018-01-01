@@ -13,9 +13,9 @@
     {
         private IUsersService usersService;
         private UserManager<User> userManager;
-        public HomeController(IUsersService users, UserManager<User> userManager)
+        public HomeController(IUsersService usersService, UserManager<User> userManager)
         {
-            this.usersService = users;
+            this.usersService = usersService;
             this.userManager = userManager;
         }
 

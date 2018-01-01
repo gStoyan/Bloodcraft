@@ -13,5 +13,9 @@
         public const int BanditsBloodBounty = 300;
 
         public const int BandtitsDefencePoints = 500;
+
+        public const int AdminCastleId = 13;
+
+        public const string AdminName = "Admin";
     }
 }

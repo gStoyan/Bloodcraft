@@ -2,7 +2,6 @@
 {
     using Bloodcraft.Data.Models;
     using Bloodcraft.Services.Users;
-    using Bloodcraft.Services.Users.Models;
     using Bloodcraft.Web.Models.Castles;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
@@ -15,10 +14,10 @@
         private UserManager<User> userManager;
         private ICastlesService castlesService;
 
-        public CastlesController(UserManager<User> userManager, ICastlesService castles)
+        public CastlesController(UserManager<User> userManager, ICastlesService castlesService)
         {
             this.userManager = userManager;
-            this.castlesService = castles;
+            this.castlesService = castlesService;
         }
         public async Task<IActionResult> Index()
         {

@@ -13,10 +13,10 @@
         private IAdminBuildingsService buildingsService;
         private UserManager<User> userManager;
 
-        public BuildingsController(UserManager<User> userManager,IAdminBuildingsService buildings)
+        public BuildingsController(UserManager<User> userManager,IAdminBuildingsService buildingsService)
         {
             this.userManager = userManager;
-            this.buildingsService = buildings;
+            this.buildingsService = buildingsService;
         }
 
         public async Task<IActionResult> Index(int page = 1) 

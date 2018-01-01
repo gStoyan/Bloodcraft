@@ -10,9 +10,9 @@
     {
         private IAdminMinionsService minionsService;
 
-        public MinionsController(IAdminMinionsService minions)
+        public MinionsController(IAdminMinionsService minionsService)
         {
-            this.minionsService = minions;
+            this.minionsService = minionsService;
         }
 
         public async Task<IActionResult> Index(int page = 1)

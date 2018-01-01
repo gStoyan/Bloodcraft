@@ -55,6 +55,6 @@ C:\Users\Stoyan Grancharov\Desktop\CSHARP\Bloodcraft\Bloodcraft.Web\Bloodcraft.W
 C:\Users\Stoyan Grancharov\Desktop\CSHARP\Bloodcraft\Bloodcraft.Web\Bloodcraft.Web\obj\Debug\netcoreapp2.0\Bloodcraft.Web.pdb
 C:\Users\Stoyan Grancharov\Desktop\CSHARP\Bloodcraft\Bloodcraft.Web\Bloodcraft.Web\bin\Debug\netcoreapp2.0\Bloodcraft.Services.dll
 C:\Users\Stoyan Grancharov\Desktop\CSHARP\Bloodcraft\Bloodcraft.Web\Bloodcraft.Web\bin\Debug\netcoreapp2.0\Bloodcraft.Services.pdb
-C:\Users\Stoyan Grancharov\Desktop\CSHARP\Bloodcraft\Bloodcraft.Web\Bloodcraft.Web\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
 C:\Users\Stoyan Grancharov\Desktop\CSHARP\Bloodcraft\Bloodcraft.Web\Bloodcraft.Web\bin\Debug\netcoreapp2.0\Bloodcraft.Core.dll
 C:\Users\Stoyan Grancharov\Desktop\CSHARP\Bloodcraft\Bloodcraft.Web\Bloodcraft.Web\bin\Debug\netcoreapp2.0\Bloodcraft.Core.pdb
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\Bloodcraft\Bloodcraft.Web\Bloodcraft.Web\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs

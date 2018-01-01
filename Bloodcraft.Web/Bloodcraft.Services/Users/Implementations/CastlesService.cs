@@ -10,11 +10,12 @@
     using Bloodcraft.Data.Models;
     using System;
     using Bloodcraft.Services.Admin;
+    using Bloodcraft.Services.Infrastructure;
 
     public class CastlesService : ICastlesService
     {
         private BloodcraftDbContext db;
-        private IAdminBuildingsService buildings;
+        private IAdminBuildingsService buildingsService;
 
         public CastlesService(BloodcraftDbContext db, IAdminBuildingsService buildings)
         {
@@ -26,6 +27,7 @@
             var castle = this.db.Castles.Include(c => c.Buildings).Include(c => c.Minions).FirstOrDefault(x => x.Name == castleName);
             var buildings = new List<Building>();
             var minions = new List<Minion>();
+
             foreach (var minion in castle.Minions)
             {
                 var newMinion = new Minion
@@ -54,7 +56,6 @@
                 };
                 buildings.Add(newBuildings);
             }
-            
 
             var newCastle = new Castle()
             {
@@ -76,7 +77,7 @@
         public async Task<CastlesListingModel> GetAdminCastleAsync()
         => await
             this.db
-            .Castles.Where(c => c.Id == 13)
+            .Castles.Where(c => c.Id == ServicesConstants.AdminCastleId)
             .ProjectTo<CastlesListingModel>()
             .FirstOrDefaultAsync();
 
@@ -96,7 +97,7 @@
 
         public async Task<IEnumerable<CastlesListingModel>> ListAllAsync()
         {
-            var adminId = this.db.Users.FirstOrDefault(u => u.UserName == "Admin").Id;
+            var adminId = this.db.Users.FirstOrDefault(u => u.UserName == ServicesConstants.AdminName).Id;
 
             return await
              this.db
@@ -114,12 +115,7 @@
 
                 int totalGoldIncome = 0;
                 int totalBloodIncome = 0;
-                var multplier = (int)Math.Floor((DateTime.UtcNow - user.DateRegistered).TotalDays);
-                if (multplier == 0)
-                {
-                    multplier = 1;
-                }
-
+                
                 foreach (var building in buildings)
                 {
                     totalGoldIncome += building.GoldIncome;
@@ -129,8 +125,8 @@
                 castle.TotalBloodIncome = totalBloodIncome;
                 castle.TotalGoldIncome = totalGoldIncome;
 
-                castle.Blood += castle.TotalBloodIncome * multplier;
-                castle.Gold += castle.TotalGoldIncome * multplier;
+                castle.Blood += castle.TotalBloodIncome;
+                castle.Gold += castle.TotalGoldIncome;
 
                 await this.db.SaveChangesAsync();
             }

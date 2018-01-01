@@ -10,7 +10,6 @@
     using Bloodcraft.Data;
     using Bloodcraft.Data.Models;
     using Bloodcraft.Web.Infrastructure.Extensions;
-            
 
     public class Startup
     {
@@ -21,12 +20,12 @@
 
         public IConfiguration Configuration { get; }
 
-       
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<BloodcraftDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+            
             services.AddIdentity<User, IdentityRole>(options =>
             {
                 options.Password.RequireDigit = false;
@@ -37,7 +36,7 @@
             })
                 .AddEntityFrameworkStores<BloodcraftDbContext>()
                 .AddDefaultTokenProviders();
-
+          
             services.AddAutoMapper();
 
             services.AddDomainServices();
@@ -45,7 +44,7 @@
             services.AddMvc();
         }
 
-        
+
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -55,6 +54,7 @@
                 app.UseDatabaseErrorPage();
                 app.UseDatabaseMigration();
             }
+
             else
             {
                 app.UseExceptionHandler("/Home/Error");

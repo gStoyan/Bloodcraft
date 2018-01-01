@@ -1,8 +1,6 @@
 ﻿namespace Bloodcraft.Web.Controllers
 {
     using Bloodcraft.Services.Users;
-    using Bloodcraft.Services.Users.Models;
-    using Bloodcraft.Web.Models.Castles;
     using Bloodcraft.Web.Models.Minions;
     using Microsoft.AspNetCore.Mvc;
     using System.Threading.Tasks;
@@ -12,10 +10,10 @@
         private ICastlesService castlesService;
         private IMinionsService minionsService;
 
-        public MinionsController(ICastlesService castles, IMinionsService minions)
+        public MinionsController(ICastlesService castlesService, IMinionsService minionsService)
         {
-            this.castlesService = castles;
-            this.minionsService = minions;
+            this.castlesService = castlesService;
+            this.minionsService = minionsService;
         }
 
         public async Task<IActionResult> NotEnoughResources() => View();

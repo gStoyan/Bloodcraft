@@ -8,9 +8,9 @@
     {
         private IKnightsService knightsService;
 
-        public KnightsController(IKnightsService knights)
+        public KnightsController(IKnightsService knightsService)
         {
-            this.knightsService = knights;
+            this.knightsService = knightsService;
         }
 
         public async Task<IActionResult> Move(int id, int x, int y)

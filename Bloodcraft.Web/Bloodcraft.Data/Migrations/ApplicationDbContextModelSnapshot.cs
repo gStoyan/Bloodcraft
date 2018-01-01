@@ -38,9 +38,13 @@ namespace Bloodcraft.Web.Data.Migrations
 
                     b.Property<int>("GoldIncome");
 
-                    b.Property<string>("ImgUrl");
+                    b.Property<string>("ImgUrl")
+                        .IsRequired()
+                        .HasMaxLength(255);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(25);
 
                     b.HasKey("Id");
 
@@ -58,9 +62,13 @@ namespace Bloodcraft.Web.Data.Migrations
 
                     b.Property<int>("Gold");
 
-                    b.Property<string>("ImgUrl");
+                    b.Property<string>("ImgUrl")
+                        .IsRequired()
+                        .HasMaxLength(255);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50);
 
                     b.Property<int>("TotalBloodIncome");
 
@@ -115,9 +123,13 @@ namespace Bloodcraft.Web.Data.Migrations
 
                     b.Property<int>("GoldCost");
 
-                    b.Property<string>("ImgUrl");
+                    b.Property<string>("ImgUrl")
+                        .IsRequired()
+                        .HasMaxLength(255);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(25);
 
                     b.HasKey("Id");
 

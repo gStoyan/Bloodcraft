@@ -9,9 +9,9 @@
         private IAdminKnightsService knightsService;
         private IKnightsService userKnights;
 
-        public KnightsController(IAdminKnightsService knights, IKnightsService userKnights)
+        public KnightsController(IAdminKnightsService knightsService, IKnightsService userKnights)
         {
-            this.knightsService = knights;
+            this.knightsService = knightsService;
             this.userKnights = userKnights;
         }
 

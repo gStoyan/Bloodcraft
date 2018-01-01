@@ -13,11 +13,11 @@
         private UserManager<User> userManager;
         private IKnightsService knightsService;
 
-        public MapController(IMapsService maps, UserManager<User> userManager, IKnightsService knights)
+        public MapController(IMapsService mapsService, UserManager<User> userManager, IKnightsService knightsService)
         {
-            this.mapsService = maps;
+            this.mapsService = mapsService;
             this.userManager = userManager;
-            this.knightsService = knights;
+            this.knightsService = knightsService;
         }
 
         public async Task<IActionResult> Index()

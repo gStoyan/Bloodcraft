@@ -9,9 +9,9 @@
     {
         private IAdminUsersService usersService;
 
-        public UsersController(IAdminUsersService users)
+        public UsersController(IAdminUsersService usersService)
         {
-            this.usersService = users;
+            this.usersService = usersService;
         }
 
         public async Task<IActionResult> Index(int page = 1)

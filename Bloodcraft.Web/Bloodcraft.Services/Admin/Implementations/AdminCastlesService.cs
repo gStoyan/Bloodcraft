@@ -3,8 +3,6 @@
     using System.Threading.Tasks;
     using Bloodcraft.Data;
     using Bloodcraft.Data.Models;
-    using System.Linq;
-    using System.Collections.Generic;
 
     public class AdminCastlesService : IAdminCastlesService
     {

@@ -8,10 +8,12 @@
     using System.Linq;
     using AutoMapper.QueryableExtensions;
     using Microsoft.EntityFrameworkCore;
+    using Bloodcraft.Services.Infrastructure;
 
     public class BuildingsService : IBuildingsService
     {
         private BloodcraftDbContext db;
+
         public BuildingsService(BloodcraftDbContext db)
         {
             this.db = db;
@@ -19,7 +21,7 @@
 
         public async Task CreateAsync(int castleId, string buildingName)
         {
-            var building = this.db.Buldings.FirstOrDefault(b => b.Name == buildingName && b.CastleId == 13);
+            var building = this.db.Buldings.FirstOrDefault(b => b.Name == buildingName && b.CastleId == ServicesConstants.AdminCastleId);
             var castle = this.db.Castles.FirstOrDefault(c => c.Id == castleId);
 
             var newBuildings = new Building
@@ -34,25 +36,26 @@
                 CastleId = castleId
             };
 
-            //if (castle.Gold > building.GoldCost && castle.Blood > building.BloodCost)
-            //{
+            if (castle.Gold > building.GoldCost && castle.Blood > building.BloodCost)
+            {
                 castle.Gold -= building.GoldCost;
                 castle.Blood -= building.BloodCost;
 
                 this.db.Buldings.Add(newBuildings);
                 await this.db.SaveChangesAsync();
-            //}
-            //else
-            //{
-            //    throw new Exception();
-            //}
+            }
+            else
+            {
+                throw new Exception();
+            }
         }
 
         public async Task<BuildingsListingModel> DetailsAsync(string name)
-        => await
+        =>
+            await
                 this.db
                 .Buldings
-                .Where(m => m.Name == name && m.CastleId == 13)
+                .Where(m => m.Name == name && m.CastleId == ServicesConstants.AdminCastleId)
                 .ProjectTo<BuildingsListingModel>()
                 .FirstOrDefaultAsync();
     }
