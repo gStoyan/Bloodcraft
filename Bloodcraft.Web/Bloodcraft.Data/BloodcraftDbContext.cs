@@ -11,7 +11,7 @@
         {
         }
 
-        public DbSet<Building> Buldings { get; set; }
+        public DbSet<Building> Buildings { get; set; }
 
         public DbSet<Minion> Minions { get; set; }
 

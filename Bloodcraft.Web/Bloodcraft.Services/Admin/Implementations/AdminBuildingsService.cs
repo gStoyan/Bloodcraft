@@ -41,7 +41,7 @@
                 BuildTime = buildTime
             };
 
-            this.db.Buldings.Add(building);
+            this.db.Buildings.Add(building);
 
             await this.db.SaveChangesAsync();
         }
@@ -60,13 +60,13 @@
         }
 
         public async Task<Building> GetById(int id)
-         =>   await this.db.Buldings.FirstOrDefaultAsync(b => b.Id == id);
+         =>   await this.db.Buildings.FirstOrDefaultAsync(b => b.Id == id);
      
 
         public async Task<IEnumerable<AdminBuildingsListingModel>> AllAsync(int page = 1)
              => await
                 this.db
-                    .Buldings
+                    .Buildings
                     .ProjectTo<AdminBuildingsListingModel>()
                     .OrderBy(m => m.Id)
                     .Skip((page - 1) * ServicesConstants.SkipBuildingsCount)
@@ -74,7 +74,7 @@
                     .ToListAsync();
         
         public async Task<int> TotalBuildingsAsync()
-         => await this.db.Buldings.CountAsync();
+         => await this.db.Buildings.CountAsync();
 
         public int GetCastleIdAsync(string userId)
         {
@@ -84,9 +84,9 @@
 
         public async Task DeleteAsync(int Id)
         {
-            var building = this.db.Buldings.FirstOrDefault(b => b.Id == Id);
+            var building = this.db.Buildings.FirstOrDefault(b => b.Id == Id);
 
-            this.db.Buldings.Remove(building);
+            this.db.Buildings.Remove(building);
 
             await this.db.SaveChangesAsync();
         }

@@ -1,0 +1,38 @@
+﻿@model CastlesListingViewModel
+@{
+    ViewData["Title"] = "List";
+}
+
+<h2>List</h2>
+
+@foreach (var castle in Model.Castles)
+{
+
+    <div class="leftDiv" style="background-image:url(@castle.ImgUrl)">
+        <div style="margin-left:5px;margin-top:5px">
+            <p>-Name: @castle.Name</p>
+            <p>-Starting Gold: @castle.Gold</p>
+            <p>-Starting Blood: @castle.Blood</p>
+            <p>-Starting Gold Income: @castle.TotalGoldIncome</p>
+            <p>-Starting BloodIncome: @castle.TotalBloodIncome</p>
+
+            <p>
+                -Starting Buildings: @foreach (var building in castle.Buildings.GroupBy(m => m.Name).Select(m => m.First()).ToList())
+                {
+                    <img src="@building.ImgUrl" width="80" height="120" />@(building.Name) <text> x  </text> @castle.Buildings.Where(x => x.Name == building.Name).Count() <text>| </text>
+                }
+            </p>
+            <p>
+                -Starting Minions: @foreach (var minion in castle.Minions.GroupBy(m => m.Name).Select(m => m.First()).ToList())
+                {
+                    <img src="@minion.ImgUrl" width="80" height="120" />@(minion.Name) <text> x  </text> @castle.Minions.Where(x => x.Name == minion.Name).Count() <text>| </text>
+                }
+            </p>
+            <p style="margin-top:10%;margin-left:50%">
+                <a class="btn btn-danger" asp-action="Choose" asp-route-name="@castle.Name">
+                    Choose
+                </a>
+            </p>
+        </div>
+    </div>
+}

@@ -1,6 +1,7 @@
 ﻿namespace Bloodcraft.Web
 {
     using AutoMapper;
+    using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
@@ -36,7 +37,18 @@
             })
                 .AddEntityFrameworkStores<BloodcraftDbContext>()
                 .AddDefaultTokenProviders();
-          
+
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+            });
+
+            services.AddMvc(opitons =>
+            {
+                opitons.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
+            });
+
             services.AddAutoMapper();
 
             services.AddDomainServices();
@@ -66,6 +78,7 @@
 
             app.UseMvc(routes =>
             {
+               
 
                 routes.MapRoute(
                   name: "areas",

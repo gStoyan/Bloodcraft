@@ -50,7 +50,7 @@ namespace Bloodcraft.Web.Data.Migrations
 
                     b.HasIndex("CastleId");
 
-                    b.ToTable("Buldings");
+                    b.ToTable("Buildings");
                 });
 
             modelBuilder.Entity("Bloodcraft.Data.Models.Castle", b =>

@@ -1,0 +1,58 @@
+﻿@model BuildingsDetailsViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+<h2>Details for @Model.UserCastle.Name</h2>
+<div class="leftDiv" style="background-color:black">
+    <p>Total Gold: @Model.UserCastle.Gold</p>
+    <p>Total Blood: @Model.UserCastle.Blood</p>
+    <p>Attack Points:@Model.UserCastle.Minions.Sum(m => m.AttackPoints) </p>
+    <p>Defence Points:@Model.UserCastle.Minions.Sum(m => m.DefencePoints) </p>
+    <p>
+        @foreach (var building in Model.AdminCastle.Buildings.GroupBy(m => m.Name).Select(m => m.First()).ToList())
+        {
+            if (Model.UserCastle.Buildings.Any(m => m.Name == building.Name))
+            {
+                <a asp-controller="Buildings" asp-action="Details" asp-route-id="@Model.UserCastle.Id" asp-route-name="@building.Name">
+                    <img src="@building.ImgUrl" style="width:100px" /> <text>x @Model.UserCastle.Buildings.Where(m => m.Name == building.Name).Count() </text>
+                </a>
+            }
+            else
+            {
+                <a asp-controller="Buildings" asp-action="Details" asp-route-id="@Model.UserCastle.Id" asp-route-name="@building.Name">
+                    <img src="@building.ImgUrl" style="width:100px; -webkit-filter:grayscale(100%)" /> <text>x 0</text>
+                </a>
+            }
+        }
+    </p>
+    <p>
+        @foreach (var minion in Model.AdminCastle.Minions.GroupBy(m => m.Name).Select(m => m.First()).ToList())
+        {
+            if (Model.UserCastle.Minions.Any(m => m.Name == minion.Name))
+            {
+                <a asp-controller="Minions" asp-action="Details" asp-route-id="@Model.UserCastle.Id" asp-route-name="@minion.Name">
+                    <img src="@minion.ImgUrl" style="width:100px" /> <text>x @Model.UserCastle.Minions.Where(m => m.Name == minion.Name).Count() </text>
+                </a>
+
+
+            }
+            else
+            {
+                <a asp-controller="Minions" asp-action="Details" asp-route-id="@Model.UserCastle.Id" asp-route-name="@minion.Name">
+                    <img src="@minion.ImgUrl" style="width:100px; -webkit-filter:grayscale(100%)" /> <text>x 0</text>
+                </a>
+            }
+        }
+    </p>
+</div>
+<div class="leftDiv" style="background-color:black">
+    <p>Gold Cost: @Model.Building.GoldCost</p>
+    <p>Blood Cost: @Model.Building.BloodCost</p>
+    <p>Blood Income Cost: @Model.Building.BloodIncome</p>
+    <p>Gold Income: @Model.Building.GoldIncome</p>
+    <p>Build Time: @Model.Building.BuildTime</p>
+    <a class="btn btn-danger" asp-area="Users" asp-controller="Buildings" asp-action="Create" asp-route-id="@Model.UserCastle.Id" asp-route-name="@Model.Building.Name">
+        Summon This Building
+    </a>
+</div>
+

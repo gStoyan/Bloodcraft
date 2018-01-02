@@ -21,7 +21,7 @@
 
         public async Task CreateAsync(int castleId, string buildingName)
         {
-            var building = this.db.Buldings.FirstOrDefault(b => b.Name == buildingName && b.CastleId == ServicesConstants.AdminCastleId);
+            var building = this.db.Buildings.FirstOrDefault(b => b.Name == buildingName && b.CastleId == ServicesConstants.AdminCastleId);
             var castle = this.db.Castles.FirstOrDefault(c => c.Id == castleId);
 
             var newBuildings = new Building
@@ -41,7 +41,7 @@
                 castle.Gold -= building.GoldCost;
                 castle.Blood -= building.BloodCost;
 
-                this.db.Buldings.Add(newBuildings);
+                this.db.Buildings.Add(newBuildings);
                 await this.db.SaveChangesAsync();
             }
             else
@@ -54,7 +54,7 @@
         =>
             await
                 this.db
-                .Buldings
+                .Buildings
                 .Where(m => m.Name == name && m.CastleId == ServicesConstants.AdminCastleId)
                 .ProjectTo<BuildingsListingModel>()
                 .FirstOrDefaultAsync();
