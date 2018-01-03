@@ -11,6 +11,7 @@
     using Bloodcraft.Web.Models.Users;
     using Bloodcraft.Data.Models;
     using Microsoft.AspNetCore.Mvc.Infrastructure.Extensions;
+    using Bloodcraft.Web.Infrastructure;
 
     [Authorize]
     [Route("[controller]/[action]")]
@@ -213,23 +214,26 @@
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Username, Email = model.Email, DateRegistered=DateTime.Now};
+                var user = new User { UserName = model.Username, Email = model.Email, DateRegistered = DateTime.Now };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User created a new account with password.");
+                    var roleResult = await _userManager.AddToRoleAsync(user, WebConstants.UserRole);
 
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
+                    if (roleResult.Succeeded)
+                    {
+                        _logger.LogInformation("User created a new account with password.");
 
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    _logger.LogInformation("User created a new account with password.");
-                    return RedirectToLocal(returnUrl);
+                        var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                        var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
+
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        _logger.LogInformation("User created a new account with password.");
+                        return RedirectToLocal(returnUrl);
+                    }
                 }
                 AddErrors(result);
-                
             }
-            
 
             // If we got this far, something failed, redisplay form
             return View(model);

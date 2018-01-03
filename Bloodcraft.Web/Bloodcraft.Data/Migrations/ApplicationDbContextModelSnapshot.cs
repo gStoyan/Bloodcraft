@@ -313,7 +313,8 @@ namespace Bloodcraft.Web.Data.Migrations
                 {
                     b.HasOne("Bloodcraft.Data.Models.User", "User")
                         .WithMany("Castles")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Bloodcraft.Data.Models.Knight", b =>

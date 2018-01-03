@@ -27,8 +27,9 @@
             services.AddDbContext<BloodcraftDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             
-            services.AddIdentity<User, IdentityRole>(options =>
-            {
+
+            services.AddIdentity<Bloodcraft.Data.Models.User, IdentityRole>(options =>
+            {    
                 options.Password.RequireDigit = false;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
@@ -37,7 +38,7 @@
             })
                 .AddEntityFrameworkStores<BloodcraftDbContext>()
                 .AddDefaultTokenProviders();
-
+            
             services.AddAuthentication().AddFacebook(facebookOptions =>
             {
                 facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
@@ -78,8 +79,6 @@
 
             app.UseMvc(routes =>
             {
-               
-
                 routes.MapRoute(
                   name: "areas",
                   template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");

@@ -17,5 +17,7 @@
         Task<CastlesListingModel> GetAdminCastleAsync();
 
         Task<CastlesListingModel> GetUsersCastleAsync(int castleId);
+
+        Task<IEnumerable<CastlesListingModel>> GetAllUsersCastlesAsync(string userId);
     }
 }

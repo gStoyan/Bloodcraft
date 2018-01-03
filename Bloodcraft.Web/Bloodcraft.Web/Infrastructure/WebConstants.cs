@@ -4,6 +4,8 @@
     {
         public const string AdminRole = "Admin";
 
+        public const string UserRole = "User";
+
         public const string AdminArea = "Admin";
 
         public const int MapWidth = 7;

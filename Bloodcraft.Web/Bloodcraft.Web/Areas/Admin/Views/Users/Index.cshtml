@@ -4,7 +4,7 @@
     ViewData["Title"] = "All Users";
 }
 
-<h2>@ViewData["Title"]</h2>
+<h2>@TempData["SuccessMessage"]</h2>
 
 <a asp-action="Index"
    asp-route-page="@(Model.PrviousPage)"
@@ -52,7 +52,10 @@
                     @user.DateRegistered
                 </td>
                 <td>                    
-                    <a asp-action="Delete" asp-route-id="@user.Id">Delete</a>
+                    <a asp-action="Delete" class="btn btn-primary" asp-route-id="@user.Id">Delete</a>
+                </td>
+                <td>
+                    <a asp-action="ChangeRole" class="btn btn-primary" asp-route-id="@user.Id">Roles</a>
                 </td>
             </tr>
         }

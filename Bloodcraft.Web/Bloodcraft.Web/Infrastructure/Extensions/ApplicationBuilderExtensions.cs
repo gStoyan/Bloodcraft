@@ -25,19 +25,21 @@
                     .Run(async () =>
                     {
                         var adminName = WebConstants.AdminRole;
+                        var userName = WebConstants.UserRole;
                         var roles = new[]
                         {
+                            userName,
                             adminName
                        };
 
                         foreach (var role in roles)
                         {
-                            var roleExists = await roleManager.RoleExistsAsync(adminName);
+                            var roleExists = await roleManager.RoleExistsAsync(role);
                             if (!roleExists)
                             {
                                 await roleManager.CreateAsync(new IdentityRole
                                 {
-                                    Name = adminName
+                                    Name = role
                                 });
                             }
                         }

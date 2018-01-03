@@ -27,7 +27,8 @@
             builder.Entity<User>()
                 .HasMany(c => c.Castles)
                 .WithOne(u => u.User)
-                .HasForeignKey(u => u.UserId);
+                .HasForeignKey(u => u.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Entity<Castle>()
                 .HasMany(c => c.Buildings)

@@ -15,11 +15,49 @@
     public class CastlesService : ICastlesService
     {
         private BloodcraftDbContext db;
-        private IAdminBuildingsService buildingsService;
 
         public CastlesService(BloodcraftDbContext db, IAdminBuildingsService buildings)
         {
             this.db = db;
+        }
+
+        public async Task<IEnumerable<CastlesListingModel>> ListAllAsync()
+        {
+            var adminId = this.db.Users.FirstOrDefault(u => u.UserName == ServicesConstants.AdminName).Id;
+
+            return await
+             this.db
+             .Castles.Where(c => c.UserId == adminId)
+             .ProjectTo<CastlesListingModel>()
+             .ToListAsync();
+        }
+        public async Task<IEnumerable<CastlesListingModel>> ListUsersCastleAsync(string userId)
+        {
+            var castles = this.db.Castles.Where(u => u.UserId == userId).Include(c => c.Buildings).ToList();
+            var user = this.db.Users.FirstOrDefault(u => u.Id == userId);
+            foreach (var castle in castles)
+            {
+                var buildings = castle.Buildings;
+
+                int totalGoldIncome = 0;
+                int totalBloodIncome = 0;
+
+                foreach (var building in buildings)
+                {
+                    totalGoldIncome += building.GoldIncome;
+                    totalBloodIncome += building.BloodIncome;
+                };
+
+                castle.TotalBloodIncome = totalBloodIncome;
+                castle.TotalGoldIncome = totalGoldIncome;
+
+                await this.db.SaveChangesAsync();
+            }
+
+            return await this.db
+                .Castles.Where(c => c.UserId == userId)
+                .ProjectTo<CastlesListingModel>()
+                .ToListAsync();
         }
 
         public async Task ChooseAsync(string userId, string castleName)
@@ -73,6 +111,7 @@
 
             await this.db.SaveChangesAsync();
         }
+       
 
         public async Task<CastlesListingModel> GetAdminCastleAsync()
         => await
@@ -88,6 +127,13 @@
             .ProjectTo<CastlesListingModel>()
             .FirstOrDefaultAsync();
 
+        public async Task<IEnumerable<CastlesListingModel>> GetAllUsersCastlesAsync(string userId)
+        => await
+            this.db
+            .Castles.Where(c => c.UserId == userId)
+            .ProjectTo<CastlesListingModel>()
+            .ToListAsync();
+
         public async Task<IEnumerable<CastlesListingModel>> GetAllCastlesAsync()
             => await
             this.db
@@ -95,46 +141,8 @@
             .ProjectTo<CastlesListingModel>()
             .ToListAsync();
 
-        public async Task<IEnumerable<CastlesListingModel>> ListAllAsync()
-        {
-            var adminId = this.db.Users.FirstOrDefault(u => u.UserName == ServicesConstants.AdminName).Id;
+       
 
-            return await
-             this.db
-             .Castles.Where(c => c.UserId == adminId)
-             .ProjectTo<CastlesListingModel>()
-             .ToListAsync();
-        }
-        public async Task<IEnumerable<CastlesListingModel>> ListUsersCastleAsync(string userId)
-        {
-            var castles = this.db.Castles.Where(u => u.UserId == userId).Include(c => c.Buildings).ToList();
-            var user = this.db.Users.FirstOrDefault(u => u.Id == userId);
-            foreach (var castle in castles)
-            {
-                var buildings = castle.Buildings;
-
-                int totalGoldIncome = 0;
-                int totalBloodIncome = 0;
-                
-                foreach (var building in buildings)
-                {
-                    totalGoldIncome += building.GoldIncome;
-                    totalBloodIncome += building.BloodIncome;
-                };
-
-                castle.TotalBloodIncome = totalBloodIncome;
-                castle.TotalGoldIncome = totalGoldIncome;
-
-                castle.Blood += castle.TotalBloodIncome;
-                castle.Gold += castle.TotalGoldIncome;
-
-                await this.db.SaveChangesAsync();
-            }
-
-            return await this.db
-                .Castles.Where(c => c.UserId == userId)
-                .ProjectTo<CastlesListingModel>()
-                .ToListAsync();
-        }
+       
     }
 }

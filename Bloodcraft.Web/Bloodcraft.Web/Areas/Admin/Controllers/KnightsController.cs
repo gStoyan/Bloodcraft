@@ -8,16 +8,20 @@
     {
         private IAdminKnightsService knightsService;
         private IKnightsService userKnights;
+        private IMapsService mapsService;
 
-        public KnightsController(IAdminKnightsService knightsService, IKnightsService userKnights)
+        public KnightsController(IAdminKnightsService knightsService, IKnightsService userKnights, IMapsService mapsService)
         {
             this.knightsService = knightsService;
             this.userKnights = userKnights;
+            this.mapsService = mapsService;
         }
 
     
         public async Task<IActionResult> Index()
         {
+            await this.mapsService.CreateAsync();
+
             await this.knightsService.ResetAsync();
 
             await this.userKnights.CreateAsync();
