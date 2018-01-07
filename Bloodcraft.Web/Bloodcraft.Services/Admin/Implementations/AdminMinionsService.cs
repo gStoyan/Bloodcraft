@@ -36,7 +36,7 @@
                 AttackPoints = attackPoints,
                 DefencePoints = defencePoints,
                 BloodPoints = bloodPoints,
-                CastleId = 13
+                CastleId = ServicesConstants.AdminCastleId
             };
 
             this.db.Minions.Add(minion);

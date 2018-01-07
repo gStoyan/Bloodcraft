@@ -1,0 +1,11 @@
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Core\bin\Release\netstandard2.0\Bloodcraft.Core.deps.json
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Core\bin\Release\netstandard2.0\Bloodcraft.Core.dll
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Core\bin\Release\netstandard2.0\Bloodcraft.Core.pdb
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Core\bin\Release\netstandard2.0\Bloodcraft.Data.dll
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Core\bin\Release\netstandard2.0\Bloodcraft.Data.pdb
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Core\obj\Release\netstandard2.0\Bloodcraft.Core.csprojResolveAssemblyReference.cache
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Core\obj\Release\netstandard2.0\Bloodcraft.Core.csproj.CoreCompileInputs.cache
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Core\obj\Release\netstandard2.0\Bloodcraft.Core.AssemblyInfoInputs.cache
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Core\obj\Release\netstandard2.0\Bloodcraft.Core.AssemblyInfo.cs
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Core\obj\Release\netstandard2.0\Bloodcraft.Core.dll
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Core\obj\Release\netstandard2.0\Bloodcraft.Core.pdb

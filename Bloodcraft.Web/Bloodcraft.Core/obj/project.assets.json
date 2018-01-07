@@ -4648,11 +4648,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Core\\Bloodcraft.Core.csproj",
+      "projectUniqueName": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\New folder\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Core\\Bloodcraft.Core.csproj",
       "projectName": "Bloodcraft.Core",
-      "projectPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Core\\Bloodcraft.Core.csproj",
+      "projectPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\New folder\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Core\\Bloodcraft.Core.csproj",
       "packagesPath": "C:\\Users\\Stoyan Grancharov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Core\\obj\\",
+      "outputPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\New folder\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -4671,8 +4671,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\Bloodcraft.Data.csproj": {
-              "projectPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\Bloodcraft.Data.csproj"
+            "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\New folder\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\Bloodcraft.Data.csproj": {
+              "projectPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\New folder\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\Bloodcraft.Data.csproj"
             }
           }
         }
@@ -4686,15 +4686,15 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
+          "AutoMapper": {
+            "target": "Package",
+            "version": "[6.2.1, )"
+          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0.0",
+            "version": "[2.0.0, )",
             "autoReferenced": true
-          },
-          "AutoMapper": {
-            "target": "Package",
-            "version": "6.2.1"
           }
         },
         "imports": [

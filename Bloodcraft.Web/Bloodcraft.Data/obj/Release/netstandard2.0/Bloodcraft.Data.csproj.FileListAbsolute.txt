@@ -1,0 +1,9 @@
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Data\bin\Release\netstandard2.0\Bloodcraft.Data.deps.json
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Data\bin\Release\netstandard2.0\Bloodcraft.Data.dll
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Data\bin\Release\netstandard2.0\Bloodcraft.Data.pdb
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Data\obj\Release\netstandard2.0\Bloodcraft.Data.csproj.CoreCompileInputs.cache
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Data\obj\Release\netstandard2.0\Bloodcraft.Data.AssemblyInfoInputs.cache
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Data\obj\Release\netstandard2.0\Bloodcraft.Data.AssemblyInfo.cs
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Data\obj\Release\netstandard2.0\Bloodcraft.Data.dll
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Data\obj\Release\netstandard2.0\Bloodcraft.Data.pdb
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Data\obj\Release\netstandard2.0\Bloodcraft.Data.csprojResolveAssemblyReference.cache

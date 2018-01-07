@@ -1,5 +1,6 @@
 ﻿namespace Bloodcraft.Services.Admin.Implementations
 {
+    using System.Linq;
     using System.Threading.Tasks;
     using Bloodcraft.Data;
     using Bloodcraft.Data.Models;
@@ -29,6 +30,17 @@
             this.db.Castles.Add(castle);
 
             await this.db.SaveChangesAsync();
+        }
+
+        public async Task GenerateIncome()
+        {
+            var castles = this.db.Castles.ToList();
+
+            foreach (var castle in castles)
+            {
+                castle.Gold += castle.TotalGoldIncome;
+                castle.Blood += castle.TotalBloodIncome;
+            }
         }
     }
 }

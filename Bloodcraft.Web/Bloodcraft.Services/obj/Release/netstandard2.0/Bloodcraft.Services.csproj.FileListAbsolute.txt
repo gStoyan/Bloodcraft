@@ -1,0 +1,13 @@
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Services\bin\Release\netstandard2.0\Bloodcraft.Services.deps.json
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Services\bin\Release\netstandard2.0\Bloodcraft.Services.dll
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Services\bin\Release\netstandard2.0\Bloodcraft.Services.pdb
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Services\bin\Release\netstandard2.0\Bloodcraft.Core.dll
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Services\bin\Release\netstandard2.0\Bloodcraft.Data.dll
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Services\bin\Release\netstandard2.0\Bloodcraft.Core.pdb
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Services\bin\Release\netstandard2.0\Bloodcraft.Data.pdb
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Services\obj\Release\netstandard2.0\Bloodcraft.Services.csprojResolveAssemblyReference.cache
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Services\obj\Release\netstandard2.0\Bloodcraft.Services.csproj.CoreCompileInputs.cache
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Services\obj\Release\netstandard2.0\Bloodcraft.Services.AssemblyInfoInputs.cache
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Services\obj\Release\netstandard2.0\Bloodcraft.Services.AssemblyInfo.cs
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Services\obj\Release\netstandard2.0\Bloodcraft.Services.dll
+C:\Users\Stoyan Grancharov\Desktop\CSHARP\New folder\Bloodcraft\Bloodcraft.Web\Bloodcraft.Services\obj\Release\netstandard2.0\Bloodcraft.Services.pdb

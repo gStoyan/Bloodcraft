@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="BloodcraftWeb20180106021534" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Stoyan\ Grancharov\\Desktop\\CSHARP\\New\ folder\\Bloodcraft\\Bloodcraft\.Web\\Bloodcraft\.Web\\obj\\Release\\netcoreapp2\.0\\PubTmp\\Out\\$" />
+  </parameter>
+  <parameter name="Bloodcraft.Data.BloodcraftDbContext" description="" value="Data Source=tcp:bloodcraftweb20180106021534dbserver.database.windows.net,1433;Initial Catalog=BloodcraftWeb20180106021534_db;User Id=bloodcraftadmin@bloodcraftweb20180106021534dbserver;Password=Password1$" tags="dbfullsql">
+    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\Stoyan\ Grancharov\\Desktop\\CSHARP\\New\ folder\\Bloodcraft\\Bloodcraft\.Web\\Bloodcraft\.Web\\obj\\Release\\netcoreapp2\.0\\PubTmp\\EFSQLScripts\\Bloodcraft\.Data\.BloodcraftDbContext\.sql$" />
+  </parameter>
+</parameters>

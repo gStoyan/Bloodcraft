@@ -14,7 +14,7 @@
 
         public const int BandtitsDefencePoints = 500;
 
-        public const int AdminCastleId = 13;
+        public const int AdminCastleId = 1;
 
         public const string AdminName = "Admin";
     }

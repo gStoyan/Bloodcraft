@@ -3677,11 +3677,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\Bloodcraft.Data.csproj",
+      "projectUniqueName": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\New folder\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\Bloodcraft.Data.csproj",
       "projectName": "Bloodcraft.Data",
-      "projectPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\Bloodcraft.Data.csproj",
+      "projectPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\New folder\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\Bloodcraft.Data.csproj",
       "packagesPath": "C:\\Users\\Stoyan Grancharov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\obj\\",
+      "outputPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\New folder\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -3711,27 +3711,27 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Identity": {
+            "target": "Package",
+            "version": "[2.0.1, )"
+          },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
-            "version": "2.0.1"
+            "version": "[2.0.1, )"
+          },
+          "Microsoft.EntityFrameworkCore.SqlServer": {
+            "target": "Package",
+            "version": "[2.0.1, )"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
             "target": "Package",
-            "version": "2.0.1"
+            "version": "[2.0.1, )"
           },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0.0",
+            "version": "[2.0.0, )",
             "autoReferenced": true
-          },
-          "Microsoft.EntityFrameworkCore.SqlServer": {
-            "target": "Package",
-            "version": "2.0.1"
-          },
-          "Microsoft.AspNetCore.Identity": {
-            "target": "Package",
-            "version": "2.0.1"
           }
         },
         "imports": [

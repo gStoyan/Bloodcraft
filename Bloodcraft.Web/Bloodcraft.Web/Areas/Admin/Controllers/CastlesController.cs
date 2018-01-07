@@ -31,5 +31,12 @@
 
             return RedirectToAction("Index","Panel");
         }
+
+        public async Task<IActionResult> GenerateIncome()
+        {
+            await this.castlesService.GenerateIncome();
+
+            return RedirectToAction("Index", "Panel");
+        }
     }
 }

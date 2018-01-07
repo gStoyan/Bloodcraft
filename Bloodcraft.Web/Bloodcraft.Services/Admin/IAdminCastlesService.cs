@@ -13,5 +13,6 @@
             int totalGoldIncome
             );
 
+        Task GenerateIncome();
     }
 }

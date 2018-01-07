@@ -13257,11 +13257,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Web\\Bloodcraft.Web.csproj",
+      "projectUniqueName": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\New folder\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Web\\Bloodcraft.Web.csproj",
       "projectName": "Bloodcraft.Web",
-      "projectPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Web\\Bloodcraft.Web.csproj",
+      "projectPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\New folder\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Web\\Bloodcraft.Web.csproj",
       "packagesPath": "C:\\Users\\Stoyan Grancharov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Web\\obj\\",
+      "outputPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\New folder\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13280,14 +13280,14 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Services\\Bloodcraft.Services.csproj": {
-              "projectPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Services\\Bloodcraft.Services.csproj"
+            "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\New folder\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Core\\Bloodcraft.Core.csproj": {
+              "projectPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\New folder\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Core\\Bloodcraft.Core.csproj"
             },
-            "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\Bloodcraft.Data.csproj": {
-              "projectPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\Bloodcraft.Data.csproj"
+            "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\New folder\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\Bloodcraft.Data.csproj": {
+              "projectPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\New folder\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Data\\Bloodcraft.Data.csproj"
             },
-            "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Core\\Bloodcraft.Core.csproj": {
-              "projectPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Core\\Bloodcraft.Core.csproj"
+            "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\New folder\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Services\\Bloodcraft.Services.csproj": {
+              "projectPath": "C:\\Users\\Stoyan Grancharov\\Desktop\\CSHARP\\New folder\\Bloodcraft\\Bloodcraft.Web\\Bloodcraft.Services\\Bloodcraft.Services.csproj"
             }
           }
         }
@@ -13301,39 +13301,39 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Authentication.Cookies": {
+          "AutoMapper": {
             "target": "Package",
-            "version": "2.0.1"
-          },
-          "Microsoft.AspNetCore.Authentication.Facebook": {
-            "target": "Package",
-            "version": "2.0.1"
-          },
-          "Microsoft.EntityFrameworkCore.Tools": {
-            "target": "Package",
-            "version": "2.0.1"
+            "version": "[6.2.1, )"
           },
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
-            "version": "3.2.0"
+            "version": "[3.2.0, )"
+          },
+          "Microsoft.AspNetCore.All": {
+            "target": "Package",
+            "version": "[2.0.3, )"
+          },
+          "Microsoft.AspNetCore.Authentication.Cookies": {
+            "target": "Package",
+            "version": "[2.0.1, )"
+          },
+          "Microsoft.AspNetCore.Authentication.Facebook": {
+            "target": "Package",
+            "version": "[2.0.1, )"
+          },
+          "Microsoft.EntityFrameworkCore.Tools": {
+            "target": "Package",
+            "version": "[2.0.1, )"
+          },
+          "Microsoft.NETCore.App": {
+            "target": "Package",
+            "version": "[2.0.0, )",
+            "autoReferenced": true
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0.0"
-          },
-          "Microsoft.NETCore.App": {
-            "target": "Package",
-            "version": "2.0.0",
-            "autoReferenced": true
-          },
-          "AutoMapper": {
-            "target": "Package",
-            "version": "6.2.1"
-          },
-          "Microsoft.AspNetCore.All": {
-            "target": "Package",
-            "version": "2.0.3"
+            "version": "[2.0.0, )"
           }
         },
         "imports": [

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAnX4bJQxhnUqsa0bIgZl0bQAAAAACAAAAAAAQZgAAAAEAACAAAADIOmizn1b9zs4XDuzA8mtSmABOumjrRXmohIiVjVG/swAAAAAOgAAAAAIAACAAAAA0tEWeW+V8iH+QS1hIEUfB/OBgPzTOfRp3renAp004woAAAABtFOTO+AusMsvyobQLVNv8+TSdrvdQSInD/EW0IHq7vjOX8ZOjBGCBpwqkY4OeUKqFKEYW7boP18Nl+6sFnF2qG3EukS8Hjm2nf8hgYn0R6Kf6xrUKqbwxP62sbH6QE5bhiMyLz06Ge++BVgm2zMF3nfti9zl9o25B7v4ZwBGKyEAAAACsO21K/u4U60rjxmIYh/DEu8PMQ3tralEA8VOii30dEyj0OSHjW0CFJoedWzXEkQ7dI7uGErxVqYlc3UDd1kog</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:bloodcraftweb20180106021534dbserver.database.windows.net,1433;Initial Catalog=BloodcraftWeb20180106021534_db;User Id=bloodcraftadmin@bloodcraftweb20180106021534dbserver;Password=Password1$</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="Bloodcraft.Data.BloodcraftDbContext">
+      <Value>Data Source=tcp:bloodcraftweb20180106021534dbserver.database.windows.net,1433;Initial Catalog=BloodcraftWeb20180106021534_db;User Id=bloodcraftadmin@bloodcraftweb20180106021534dbserver;Password=Password1$</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

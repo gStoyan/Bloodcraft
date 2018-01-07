@@ -1,0 +1,76 @@
+﻿body {
+    color: wheat;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background: url('../images//Background//Background.jpg') center center fixed;     
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: black;
+}
+.jumbotron {
+    margin-bottom: 0px;
+    background-image: url('../images//Background//Jumbotron-Background.jpg');
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: black 0.3em 0.3em 0.3em;
+}
+
+.navbar-inverse {
+    background-color: black !important;
+}
+
+.leftDiv {
+    border-color: red;
+    border: thick;
+    width: 50%;
+    height: 720px;
+    float: left;
+    background: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: black;
+}
+.childDiv{
+    margin-left:20px;
+}
+
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.adminbody {
+    background-image: url('../images//Background//AdminBackground.jpg');
+}
+
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+img
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
